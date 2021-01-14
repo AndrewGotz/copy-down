@@ -10,7 +10,7 @@ public class Main {
   private static String readHtml() throws Exception {
     final StringBuilder contentBuilder = new StringBuilder();
     try (final BufferedReader in = new BufferedReader(
-        new FileReader("Exported-HackathonWiki.html"))) {
+        new FileReader("Exported-HackathonWiki.html.bak"))) {
       String str;
       while ((str = in.readLine()) != null) {
         contentBuilder.append(str);

@@ -132,24 +132,36 @@ public class CopyDown {
 
       private final List<Rule> rules;
 
-        public Rules () {
-          rules = new ArrayList<>();
-
-            //=======================confluence filters===================
-            addRule("confluence-div", new Rule(element -> ((Element)element).tagName().contains("div"), (content, element) -> {
-              if ("codeContent panelContent pdl".equals(element.attr("class"))) {
-                return "```java\n" + content + "\n```";
-              }
-              return content;
-            }));
-          addRule("confluence-table", new Rule(element -> ((Element)element).tagName().contains("table"), (content, element) -> {
-            if ("wrapped confluenceTable".equals(element.attr("class"))) {
-              return element.toString();
+        private void addConfluenceRules() {
+          addRule("confluence-div", new Rule(element -> ((Element)element).tagName().contains("div"), (content, element) -> {
+            if ("codeContent panelContent pdl".equals(element.attr("class"))) {
+              return "```java\n" + content + "\n```";
             }
             return content;
           }));
+          //TODO
+          addRule("confluence-table", new Rule(element -> ((Element)element).tagName().contains("table"), (content, element) -> {
+            if ("wrapped confluenceTable".equals(element.attr("class"))) {
+              //return element.toString();
+//              return process(new CopyNode("<ul><li>a1</li></ul>"));
+//              return process(new CopyNode(element.toString()));
+            }
+            return content;
+          }));
+          //TODO
+          addRule("confluence-preformatted", new Rule("pre", (content, element) -> {
+            if ("Preformatted".equals(element.childNode(0).toString())) {
+              return content;
+            }
+            return content;
+          }));
+        }
 
-            //======================others=================================
+        public Rules () {
+          rules = new ArrayList<>();
+
+            addConfluenceRules(); //confluence filters
+
             addRule("blankReplacement", new Rule((element) -> CopyNode.isBlank(element), (content, element) ->
                     CopyNode.isBlock(element) ? "\n\n" : ""));
             addRule("paragraph", new Rule("p", (content, element) -> {return "\n\n" + content + "\n\n";}));
