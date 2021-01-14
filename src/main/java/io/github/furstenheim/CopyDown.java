@@ -1,26 +1,25 @@
 package io.github.furstenheim;
 
-import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
-import org.jsoup.nodes.TextNode;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.nodes.TextNode;
 
 /**
- * Main class of the package
+ * io.github.furstenheim.Main class of the package
  */
 public class CopyDown {
     public CopyDown () {
-        this.options = OptionsBuilder.anOptions().build();
+      options = OptionsBuilder.anOptions().build();
         setUp();
     }
 
-    public CopyDown (Options options) {
+  public CopyDown(final Options options) {
         this.options = options;
         setUp();
     }
@@ -32,10 +31,10 @@ public class CopyDown {
      * @param input html to be converted
      * @return markdown text
      */
-    public String convert (String input) {
+    public String convert(final String input) {
         references = new ArrayList<>();
-        CopyNode copyRootNode = new CopyNode(input);
-        String result = process(copyRootNode);
+      final CopyNode copyRootNode = new CopyNode(input);
+      final String result = process(copyRootNode);
         return postProcess(result);
     }
 
@@ -50,7 +49,7 @@ public class CopyDown {
         String pattern;
         String replace;
 
-        public Escape(String pattern, String replace) {
+      public Escape(final String pattern, final String replace) {
             this.pattern = pattern;
             this.replace = replace;
         }
@@ -72,17 +71,18 @@ public class CopyDown {
     );
 
     private String postProcess (String output) {
-        for (Rule rule: rules.rules) {
+      for (final Rule rule : rules.rules) {
             if (rule.getAppend() != null) {
                 output = join(output, rule.getAppend().get());
             }
         }
         return output.replaceAll("^[\\t\\n\\r]+", "").replaceAll("[\\t\\r\\n\\s]+$", "");
     }
-    private String process (CopyNode node) {
+
+  private String process(final CopyNode node) {
         String result = "";
-        for (Node child : node.element.childNodes()) {
-            CopyNode copyNodeChild = new CopyNode(child, node);
+    for (final Node child : node.element.childNodes()) {
+      final CopyNode copyNodeChild = new CopyNode(child, node);
             String replacement = "";
             if (NodeUtils.isNodeType3(child)) {
                 // TODO it should be child.nodeValue
@@ -94,10 +94,11 @@ public class CopyDown {
         }
         return result;
     }
-    private String replacementForNode (CopyNode node) {
-        Rule rule = rules.findRule(node.element);
+
+  private String replacementForNode(final CopyNode node) {
+    final Rule rule = rules.findRule(node.element);
         String content = process(node);
-        CopyNode.FlankingWhiteSpaces flankingWhiteSpaces = node.flankingWhitespace();
+    final CopyNode.FlankingWhiteSpaces flankingWhiteSpaces = node.flankingWhitespace();
         if (flankingWhiteSpaces.getLeading().length() > 0 || flankingWhiteSpaces.getTrailing().length() > 0) {
             content = content.trim();
         }
@@ -106,39 +107,43 @@ public class CopyDown {
     }
     private static final Pattern leadingNewLinePattern = Pattern.compile("^(\n*)");
     private static final Pattern trailingNewLinePattern = Pattern.compile("(\n*)$");
-    private String join (String string1, String string2) {
-        Matcher trailingMatcher = trailingNewLinePattern.matcher(string1);
+
+  private String join(final String string1, final String string2) {
+    final Matcher trailingMatcher = trailingNewLinePattern.matcher(string1);
         trailingMatcher.find();
-        Matcher leadingMatcher = leadingNewLinePattern.matcher(string2);
+    final Matcher leadingMatcher = leadingNewLinePattern.matcher(string2);
         leadingMatcher.find();
-        int nNewLines = Integer.min(2, Integer.max(leadingMatcher.group().length(), trailingMatcher.group().length()));
-        String newLineJoin = String.join("", Collections.nCopies(nNewLines, "\n"));
+    final int nNewLines = Integer
+        .min(2, Integer.max(leadingMatcher.group().length(), trailingMatcher.group().length()));
+    final String newLineJoin = String.join("", Collections.nCopies(nNewLines, "\n"));
         return trailingMatcher.replaceAll("")
                 + newLineJoin
                 + leadingMatcher.replaceAll("");
     }
 
     private String escape (String string) {
-        for (Escape escape : escapes) {
+      for (final Escape escape : escapes) {
             string = string.replaceAll(escape.pattern, escape.replace);
         }
         return string;
     }
 
     class Rules {
-        private List<Rule> rules;
+
+      private final List<Rule> rules;
 
         public Rules () {
-            this.rules = new ArrayList<>();
+          rules = new ArrayList<>();
 
             addRule("blankReplacement", new Rule((element) -> CopyNode.isBlank(element), (content, element) ->
                     CopyNode.isBlock(element) ? "\n\n" : ""));
             addRule("paragraph", new Rule("p", (content, element) -> {return "\n\n" + content + "\n\n";}));
             addRule("br", new Rule("br", (content, element) -> {return options.br + "\n";}));
             addRule("heading", new Rule(new String[]{"h1", "h2", "h3", "h4", "h5", "h6" }, (content, element) -> {
-                Integer hLevel = Integer.parseInt(element.nodeName().substring(1, 2));
+              final Integer hLevel = Integer.parseInt(element.nodeName().substring(1, 2));
                 if (options.headingStyle == HeadingStyle.SETEXT && hLevel < 3) {
-                    String underline = String.join("", Collections.nCopies(content.length(), hLevel == 1 ? "=" : "-"));
+                  final String underline = String
+                      .join("", Collections.nCopies(content.length(), hLevel == 1 ? "=" : "-"));
                     return "\n\n" + content + "\n" + underline + "\n\n";
                 } else {
                     return "\n\n" + String.join("", Collections.nCopies(hLevel, "#")) + " " + content + "\n\n";
@@ -150,27 +155,30 @@ public class CopyDown {
                 return "\n\n" + content + "\n\n";
             }));
             addRule("list", new Rule(new String[] { "ul", "ol" }, (content, element) -> {
-                Element parent = (Element) element.parentNode();
+              final Element parent = (Element) element.parentNode();
                 if (parent.nodeName().equals("li") && parent.child(parent.childrenSize() - 1) == element) {
                     return "\n" + content;
                 } else {
                     return "\n\n" + content + "\n\n";
                 }
             }));
+          addRule("confluencecode", new Rule("ac:structured-macro", (content, element) -> {
+            return "```java" + content + "```";
+          }));
             addRule("listItem", new Rule("li", (content, element) -> {
                 content = content.replaceAll("^\n+", "") // remove leading new lines
                         .replaceAll("\n+$", "\n") // remove trailing new lines with just a single one
                         .replaceAll("(?m)\n", "\n    "); // indent
                 String prefix = options.bulletListMaker + "   ";
-                Element parent = (Element)element.parentNode();
+              final Element parent = (Element) element.parentNode();
                 if (parent.nodeName().equals("ol")) {
-                    String start = parent.attr("start");
-                    int index = parent.children().indexOf(element);
+                  final String start = parent.attr("start");
+                  final int index = parent.children().indexOf(element);
                     int parsedStart = 1;
                     if (start.length() != 0) {
                         try {
                             parsedStart = Integer.valueOf(start);
-                        } catch (NumberFormatException e) {
+                        } catch (final NumberFormatException e) {
                             e.printStackTrace();
                         }
                     }
@@ -197,7 +205,8 @@ public class CopyDown {
                 if (childClass == null) {
                     childClass = "";
                 }
-                Matcher languageMatcher = Pattern.compile("language-(\\S+)").matcher(childClass);
+              final Matcher languageMatcher = Pattern.compile("language-(\\S+)")
+                  .matcher(childClass);
                 String language = "";
                 if (languageMatcher.find()) {
                     language = languageMatcher.group(1);
@@ -210,14 +219,15 @@ public class CopyDown {
                     code = element.childNode(0).outerHtml();
                 }
 
-                String fenceChar = options.fence.substring(0, 1);
+              final String fenceChar = options.fence.substring(0, 1);
                 int fenceSize = 3;
-                Matcher fenceMatcher = Pattern.compile("(?m)^(" + fenceChar + "{3,})").matcher(content);
+              final Matcher fenceMatcher = Pattern.compile("(?m)^(" + fenceChar + "{3,})")
+                  .matcher(content);
                 while (fenceMatcher.find()) {
-                    String group = fenceMatcher.group(1);
+                  final String group = fenceMatcher.group(1);
                     fenceSize = Math.max(group.length() + 1, fenceSize);
                 }
-                String fence = String.join("", Collections.nCopies(fenceSize, fenceChar));
+              final String fence = String.join("", Collections.nCopies(fenceSize, fenceChar));
                 if (code.length() > 0 && code.charAt(code.length() - 1) == '\n') {
                     code = code.substring(0, code.length() - 1);
                 }
@@ -235,7 +245,7 @@ public class CopyDown {
                        && element.nodeName().equals("a")
                        && element.attr("href").length() != 0;
             }, (content, element) -> {
-                String href = element.attr("href");
+              final String href = element.attr("href");
                 String title = cleanAttribute(element.attr("title"));
                 if (title.length() != 0) {
                     title = " \"" + title + "\"";
@@ -247,13 +257,13 @@ public class CopyDown {
                        && element.nodeName().equals("a")
                        && element.attr("href").length() != 0;
             }, (content, element) -> {
-                String href = element.attr("href");
+              final String href = element.attr("href");
                 String title = cleanAttribute(element.attr("title"));
                 if (title.length() != 0) {
                     title = " \"" + title + "\"";
                 }
-                String replacement;
-                String reference;
+              final String replacement;
+              final String reference;
                 switch (options.linkReferenceStyle) {
                     case COLLAPSED:
                         replacement = "[" + content + "][]";
@@ -265,7 +275,7 @@ public class CopyDown {
                         break;
                     case DEFAULT:
                     default:
-                        int id = references.size() + 1;
+                      final int id = references.size() + 1;
                         replacement = "[" + content + "][" + id + "]";
                         reference = "[" + id + "]: " + href + title;
                 }
@@ -291,8 +301,10 @@ public class CopyDown {
                 return options.strongDelimiter + content + options.strongDelimiter;
             }));
             addRule("code", new Rule((element) -> {
-                boolean hasSiblings = element.previousSibling() != null || element.nextSibling() != null;
-                boolean isCodeBlock = element.parentNode().nodeName().equals("pre") && !hasSiblings;
+              final boolean hasSiblings =
+                  element.previousSibling() != null || element.nextSibling() != null;
+              final boolean isCodeBlock =
+                  element.parentNode().nodeName().equals("pre") && !hasSiblings;
                 return element.nodeName().equals("code") && !isCodeBlock;
             }, (content, element) -> {
                 if (content.trim().length() == 0) {
@@ -301,8 +313,8 @@ public class CopyDown {
                 String delimiter = "`";
                 String leadingSpace = "";
                 String trailingSpace = "";
-                Pattern pattern = Pattern.compile("(?m)(`)+");
-                Matcher matcher = pattern.matcher(content);
+              final Pattern pattern = Pattern.compile("(?m)(`)+");
+              final Matcher matcher = pattern.matcher(content);
                 if (matcher.find()) {
                     if (Pattern.compile("^`").matcher(content).find()) {
                         leadingSpace = " ";
@@ -324,12 +336,12 @@ public class CopyDown {
                 return delimiter + leadingSpace + content + trailingSpace + delimiter;
             }));
             addRule("img", new Rule("img", (content, element) -> {
-                String alt = cleanAttribute(element.attr("alt"));
-                String src = element.attr("src");
+              final String alt = cleanAttribute(element.attr("alt"));
+              final String src = element.attr("src");
                 if (src.length() == 0) {
                     return "";
                 }
-                String title = cleanAttribute(element.attr("title"));
+              final String title = cleanAttribute(element.attr("title"));
                 String titlePart = "";
                 if (title.length() != 0) {
                     titlePart = " \"" + title + "\"";
@@ -339,8 +351,8 @@ public class CopyDown {
             addRule("default", new Rule((element -> true), (content, element) -> CopyNode.isBlock(element) ? "\n\n" + content + "\n\n" : content));
         }
 
-        public Rule findRule (Node node) {
-            for (Rule rule : rules) {
+      public Rule findRule(final Node node) {
+        for (final Rule rule : rules) {
                 if (rule.getFilter().test(node)) {
                     return rule;
                 }
@@ -348,11 +360,12 @@ public class CopyDown {
             return null;
         }
 
-        private void addRule (String name, Rule rule) {
+      private void addRule(final String name, final Rule rule) {
             rule.setName(name);
             rules.add(rule);
         }
-        private String cleanAttribute (String attribute) {
+
+      private String cleanAttribute(final String attribute) {
             return attribute.replaceAll("(\n+\\s*)+", "\n");
         }
     }

@@ -15,7 +15,7 @@ dependencies {
 ```java
 
 import io.github.furstenheim.CopyDown;
-public class Main {
+public class io.github.furstenheim.Main {
     public static void main (String[] args) {
         CopyDown converter = new CopyDown();
         String myHtml = "<h1>Some title</h1><div>Some html<p>Another paragraph</p></div>";
@@ -35,7 +35,7 @@ import io.github.furstenheim.CopyDown;
 import io.github.furstenheim.Options;
 import io.github.furstenheim.OptionsBuilder;
 
-public class Main {
+public class io.github.furstenheim.Main {
    public static void main (String[] args) {
        OptionsBuilder optionsBuilder = OptionsBuilder.anOptions();
        Options options = optionsBuilder
