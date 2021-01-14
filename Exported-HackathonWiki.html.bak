@@ -2,196 +2,513 @@
 <html>
     <head>
         <title>Prachi Srivastava : Sample Wiki for Hackathon</title>
-        <link rel="stylesheet" href="styles/site.css" type="text/css" />
-        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-
+        <link rel="stylesheet"
+              href="styles/site.css"
+              type="text/css"/>
+        <META http-equiv="Content-Type"
+              content="text/html; charset=UTF-8"</head>
     <body class="theme-default aui-theme-default">
         <div id="page">
-            <div id="main" class="aui-page-panel">
+            <div id="main"
+                 class="aui-page-panel">
                 <div id="main-header">
                     <div id="breadcrumb-section">
                         <ol id="breadcrumbs">
                             <li class="first">
-                                <span><a href="index.html">Prachi Srivastava</a></span>
+                                <span>
+                                    <a href="index.html">Prachi Srivastava</a>
+                                </span>
                             </li>
-                                                </ol>
+                        </ol>
                     </div>
-                    <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Prachi Srivastava : Sample Wiki for Hackathon
-                        </span>
+                    <h1 id="title-heading"
+                        class="pagetitle">
+                        <span id="title-text">Prachi Srivastava : Sample Wiki for Hackathon</span>
                     </h1>
                 </div>
-
-                <div id="content" class="view">
-                    <div class="page-metadata">
-                        
-        
-    
-        
-    
-        
-        
-            Last modified on Jan 14, 2021
+                <div id="content"
+                     class="view">
+                    <div class="page-metadata">Last modified on Jan 14, 2021</div>
+                    <div id="main-content"
+                         class="wiki-content group">
+                        <div style="display: none;">
+                            <br/>
                         </div>
-                    <div id="main-content" class="wiki-content group">
-                    <div style="display: none;"><br/></div><div style="display: none;"><br/></div><div class="contentLayout2">
-<div class="columnLayout single" data-layout="single">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<div style="display: none;"><br/></div><p><br/></p><p>Paragraph</p><h1 id="SampleWikiforHackathon-Heading1">Heading 1</h1><h2 id="SampleWikiforHackathon-Heading2">Heading 2</h2><h3 id="SampleWikiforHackathon-Heading3">Heading 3</h3><h4 id="SampleWikiforHackathon-Heading4">Heading 4</h4><h5 id="SampleWikiforHackathon-Heading5">Heading 5</h5><h6 id="SampleWikiforHackathon-Heading6">Heading 6</h6><pre>Preformatted</pre><blockquote><p>Quote</p></blockquote><p><strong>This is Bold</strong></p><p><em>This is Italics</em></p><p><u>This is underline</u></p><p><span style="color: rgb(255,0,0);">This is red text color</span></p><p><span style="color: rgb(0,0,0);"><s>This is strikethrough</s></span></p><p><sub><span style="color: rgb(0,0,0);">This is a subscript</span></sub></p><p><sup><span style="color: rgb(0,0,0);">This is superscript</span></sup></p><p><code><sup><span style="color: rgb(0,0,0);">This is monospace</span></sup></code></p><ul><li>This is bullet list</li><li>This is bullet list</li></ul><ol><li>This is numbered list</li><li>This is numbered list</li></ol><ul class="inline-task-list" data-inline-tasks-content-id="2423657916"><li data-inline-task-id="42"><span class="placeholder-inline-tasks">This is a task list for <a class="confluence-userlink user-mention current-user-mention" data-username="PS028460" href="https://wiki.cerner.com/display/~PS028460" data-linked-resource-id="1170444651" data-linked-resource-version="2" data-linked-resource-type="userinfo" data-base-url="https://wiki.cerner.com">Srivastava,Prachi</a> due on <time datetime="2021-01-15" class="date-upcoming">15 Jan 2021</time> </span></li><li data-inline-task-id="43"><span class="placeholder-inline-tasks">This is another task list <a class="confluence-userlink user-mention current-user-mention" data-username="PS028460" href="https://wiki.cerner.com/display/~PS028460" data-linked-resource-id="1170444651" data-linked-resource-version="2" data-linked-resource-type="userinfo" data-base-url="https://wiki.cerner.com">Srivastava,Prachi</a> due on <time datetime="2021-01-16" class="date-upcoming">16 Jan 2021</time> </span></li></ul><p style="margin-left: 30.0px;"><span class="placeholder-inline-tasks">This is indent</span></p><p><span class="placeholder-inline-tasks">This is outdent</span></p><p style="text-align: left;"><span class="placeholder-inline-tasks">This is aligned left</span></p><p style="text-align: center;"><span class="placeholder-inline-tasks">This is aligned center</span></p><p style="text-align: right;">This is aligned right</p><p style="text-align: left;"><br/></p></div>
-</div>
-</div>
-<div class="columnLayout single" data-layout="single">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Section1</p></div>
-</div>
-</div>
-<div class="columnLayout two-equal" data-layout="two-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Section2</p></div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Section3</p></div>
-</div>
-</div>
-<div class="columnLayout two-left-sidebar" data-layout="two-left-sidebar">
-<div class="cell aside" data-type="aside">
-<div class="innerCell">
-<p>Section4</p></div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Section5</p></div>
-</div>
-</div>
-<div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Section6</p></div>
-</div>
-<div class="cell aside" data-type="aside">
-<div class="innerCell">
-<p>Section7</p></div>
-</div>
-</div>
-<div class="columnLayout three-equal" data-layout="three-equal">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Section8</p></div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Section9</p></div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Section10</p></div>
-</div>
-</div>
-<div class="columnLayout three-with-sidebars" data-layout="three-with-sidebars">
-<div class="cell sidebars" data-type="sidebars">
-<div class="innerCell">
-<p>Section11</p></div>
-</div>
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>Section12</p></div>
-</div>
-<div class="cell sidebars" data-type="sidebars">
-<div class="innerCell">
-<p>Section13</p></div>
-</div>
-</div>
-<div class="columnLayout single" data-layout="single">
-<div class="cell normal" data-type="normal">
-<div class="innerCell">
-<p>This is an image</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/2423657916/2423657858.png" data-image-src="attachments/2423657916/2423657858.png" data-unresolved-comment-count="0" data-linked-resource-id="2423657858" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Splunk Search.png" data-base-url="https://wiki.cerner.com" data-linked-resource-content-type="image/png" data-linked-resource-container-id="2423657916" data-linked-resource-container-version="2"></span></p><p><a href="attachments/2423657916/2423657858.png" data-linked-resource-id="2423657858" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Splunk Search.png" data-nice-type="Image" data-linked-resource-content-type="image/png" data-linked-resource-container-id="2423657916" data-linked-resource-container-version="2">Splunk Search.png</a></p><p><a href="https://www.google.com/" class="external-link" rel="nofollow">https://www.google.com/</a></p><div class="table-wrap"><table class="wrapped confluenceTable"><tbody><tr><th class="confluenceTh">H1</th><th class="confluenceTh">H2</th><th class="confluenceTh">H3</th></tr><tr><td class="confluenceTd">R1</td><td class="confluenceTd">R12</td><td class="confluenceTd">R13</td></tr><tr><td class="confluenceTd">R2</td><td class="confluenceTd">R22</td><td class="confluenceTd"><p>R23</p></td></tr></tbody></table></div><p><br/></p><p><span class="confluence-embedded-file-wrapper"><a class="confluence-embedded-file" href="/download/attachments/2423657916/DomainNotificationTransaction.doExecute.txt?version=1&amp;modificationDate=1610653143000&amp;api=v2" data-nice-type="Text File" data-file-src="/download/attachments/2423657916/DomainNotificationTransaction.doExecute.txt?version=1&amp;modificationDate=1610653143000&amp;api=v2" data-linked-resource-id="2423657868" data-linked-resource-type="attachment" data-linked-resource-container-id="2423657916" data-linked-resource-default-alias="DomainNotificationTransaction.doExecute.txt" data-mime-type="text/plain" data-has-thumbnail="true" data-linked-resource-version="1"><img src="rest/documentConversion/latest/conversion/thumbnail/2423657868/1" height="250"/></a></span></p><p>Below is a horizontal rule</p><hr/><p>Below is a date:</p><p><time datetime="2021-01-16" class="date-upcoming">16 Jan 2021</time> </p><p><br/></p><p>Smiley=<img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.svg" data-emoticon-name="smile" alt="(smile)"/></p><p><br/></p><p>Copyright Symbol=©</p><p><br/></p><p><a class="confluence-userlink user-mention current-user-mention" data-username="PS028460" href="https://wiki.cerner.com/display/~PS028460" data-linked-resource-id="1170444651" data-linked-resource-version="2" data-linked-resource-type="userinfo" data-base-url="https://wiki.cerner.com">Srivastava,Prachi</a></p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Info Title</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This is an Info block</p></div></div><p>
-
-<map id="gliffy-map-2423657900-1893" name="gliffy-map-2423657900-1893"></map>
-<table width="100%" class="gliffy-macro-table">
-    <tr>
-        <td >
-            <table class="gliffy-macro-inner-table">
-                <caption align="bottom">
-                                    </caption>
-                <tr>
-                    <td>
-                        <img style="border: none; width: 300px;" usemap="#gliffy-map-2423657900-1893" src="attachments/2423657916/2423657901.png" alt="" class="gliffy-macro-image"/>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
-
-
-</p><p><span class="status-macro aui-lozenge aui-lozenge-subtle">STATUS</span></p><p>
-
-    
-    
-    
-
-<div class="gallery">
-        <table>
-
-                        <tr>
-                                    <td class="gallery-image" style="width: 300px">
-                    <img border="0" src="attachments/thumbnails/2423657916/2423657901" width="300" height="284" data-image-src="/download/attachments/2423657916/Test.png?version=1&amp;modificationDate=1610653143000&amp;api=v2" class="confluence-embedded-image" data-linked-resource-default-alias="Test.png" data-linked-resource-id="2423657901" data-linked-resource-container-id="2423657916">
-                </td>
-                                                <td class="gallery-image" style="width: 300px">
-                    <img border="0" src="attachments/thumbnails/2423657916/2423657858" width="300" height="86" data-image-src="/download/attachments/2423657916/Splunk%20Search.png?version=1&amp;modificationDate=1610653143000&amp;api=v2" class="confluence-embedded-image" data-linked-resource-default-alias="Splunk Search.png" data-linked-resource-id="2423657858" data-linked-resource-container-id="2423657916">
-                </td>
-                                </tr>
-                    <tr>
-                                    <td style="width: 300px">
-                    <div class="gallery-caption">GLIFFY IMAGE</div>
-                </td>
-                                                <td></td>
-                                </tr>
-             </table>
-</div>
-</p><p><br/></p><p><br/></p><p><br/></p></div>
-</div>
-</div>
-</div>
+                        <div style="display: none;">
+                            <br/>
+                        </div>
+                        <div class="contentLayout2">
+                            <div class="columnLayout single"
+                                 data-layout="single">
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <div style="display: none;">
+                                            <br/>
+                                        </div>
+                                        <p>
+                                            <br/>
+                                        </p>
+                                        <p>Paragraph</p>
+                                        <h1 id="SampleWikiforHackathon-Heading1">Heading 1</h1>
+                                        <h2 id="SampleWikiforHackathon-Heading2">Heading 2</h2>
+                                        <h3 id="SampleWikiforHackathon-Heading3">Heading 3</h3>
+                                        <h4 id="SampleWikiforHackathon-Heading4">Heading 4</h4>
+                                        <h5 id="SampleWikiforHackathon-Heading5">Heading 5</h5>
+                                        <h6 id="SampleWikiforHackathon-Heading6">Heading 6</h6>
+                                        <pre>Preformatted</pre>
+                                        <blockquote>
+                                            <p>Quote</p>
+                                        </blockquote>
+                                        <p>
+                                            <strong>This is Bold</strong>
+                                        </p>
+                                        <p>
+                                            <em>This is Italics</em>
+                                        </p>
+                                        <p>
+                                            <u>This is underline</u>
+                                        </p>
+                                        <p>
+                                            <span style="color: rgb(255,0,0);">This is red text color</span>
+                                        </p>
+                                        <p>
+                                            <span style="color: rgb(0,0,0);">
+                                                <s>This is strikethrough</s>
+                                            </span>
+                                        </p>
+                                        <p>
+                                            <sub>
+                                                <span style="color: rgb(0,0,0);">This is a subscript</span>
+                                            </sub>
+                                        </p>
+                                        <p>
+                                            <sup>
+                                                <span style="color: rgb(0,0,0);">This is superscript</span>
+                                            </sup>
+                                        </p>
+                                        <p>
+                                            <code>
+                                                <sup>
+                                                    <span style="color: rgb(0,0,0);">This is monospace</span>
+                                                </sup>
+                                            </code>
+                                        </p>
+                                        <ul>
+                                            <li>This is bullet list</li>
+                                            <li>This is bullet list</li>
+                                        </ul>
+                                        <ol>
+                                            <li>This is numbered list</li>
+                                            <li>This is numbered list</li>
+                                        </ol>
+                                        <ul class="inline-task-list"
+                                            data-inline-tasks-content-id="2423657916">
+                                            <li data-inline-task-id="42">
+                                                <span class="placeholder-inline-tasks">This is a task list for 
+                                                    <a class="confluence-userlink user-mention current-user-mention"
+                                                       data-username="PS028460"
+                                                       href="https://wiki.cerner.com/display/~PS028460"
+                                                       data-linked-resource-id="1170444651"
+                                                       data-linked-resource-version="2"
+                                                       data-linked-resource-type="userinfo"
+                                                       data-base-url="https://wiki.cerner.com">Srivastava,Prachi</a>
+                                                    due on 
+                                                    <time datetime="2021-01-15"
+                                                          class="date-upcoming">15 Jan 2021</time>
+                                                     
+                                                </span>
+                                            </li>
+                                            <li data-inline-task-id="43">
+                                                <span class="placeholder-inline-tasks">This is another task list 
+                                                    <a class="confluence-userlink user-mention current-user-mention"
+                                                       data-username="PS028460"
+                                                       href="https://wiki.cerner.com/display/~PS028460"
+                                                       data-linked-resource-id="1170444651"
+                                                       data-linked-resource-version="2"
+                                                       data-linked-resource-type="userinfo"
+                                                       data-base-url="https://wiki.cerner.com">Srivastava,Prachi</a>
+                                                    due on 
+                                                    <time datetime="2021-01-16"
+                                                          class="date-upcoming">16 Jan 2021</time>
+                                                     
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <p style="margin-left: 30.0px;">
+                                            <span class="placeholder-inline-tasks">This is indent</span>
+                                        </p>
+                                        <p>
+                                            <span class="placeholder-inline-tasks">This is outdent</span>
+                                        </p>
+                                        <p style="text-align: left;">
+                                            <span class="placeholder-inline-tasks">This is aligned left</span>
+                                        </p>
+                                        <p style="text-align: center;">
+                                            <span class="placeholder-inline-tasks">This is aligned center</span>
+                                        </p>
+                                        <p style="text-align: right;">This is aligned right</p>
+                                        <p style="text-align: left;">
+                                            <br/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columnLayout single"
+                                 data-layout="single">
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>Section1</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columnLayout two-equal"
+                                 data-layout="two-equal">
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>Section2</p>
+                                    </div>
+                                </div>
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>Section3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columnLayout two-left-sidebar"
+                                 data-layout="two-left-sidebar">
+                                <div class="cell aside"
+                                     data-type="aside">
+                                    <div class="innerCell">
+                                        <p>Section4</p>
+                                    </div>
+                                </div>
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>Section5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columnLayout two-right-sidebar"
+                                 data-layout="two-right-sidebar">
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>Section6</p>
+                                    </div>
+                                </div>
+                                <div class="cell aside"
+                                     data-type="aside">
+                                    <div class="innerCell">
+                                        <p>Section7</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columnLayout three-equal"
+                                 data-layout="three-equal">
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>Section8</p>
+                                    </div>
+                                </div>
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>Section9</p>
+                                    </div>
+                                </div>
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>Section10</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columnLayout three-with-sidebars"
+                                 data-layout="three-with-sidebars">
+                                <div class="cell sidebars"
+                                     data-type="sidebars">
+                                    <div class="innerCell">
+                                        <p>Section11</p>
+                                    </div>
+                                </div>
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>Section12</p>
+                                    </div>
+                                </div>
+                                <div class="cell sidebars"
+                                     data-type="sidebars">
+                                    <div class="innerCell">
+                                        <p>Section13</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columnLayout single"
+                                 data-layout="single">
+                                <div class="cell normal"
+                                     data-type="normal">
+                                    <div class="innerCell">
+                                        <p>This is an image</p>
+                                        <p>
+                                            <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size">
+                                                <img class="confluence-embedded-image"
+                                                     height="250"
+                                                     src="attachments/2423657916/2423657858.png"
+                                                     data-image-src="attachments/2423657916/2423657858.png"
+                                                     data-unresolved-comment-count="0"
+                                                     data-linked-resource-id="2423657858"
+                                                     data-linked-resource-version="1"
+                                                     data-linked-resource-type="attachment"
+                                                     data-linked-resource-default-alias="Splunk Search.png"
+                                                     data-base-url="https://wiki.cerner.com"
+                                                     data-linked-resource-content-type="image/png"
+                                                     data-linked-resource-container-id="2423657916"
+                                                     data-linked-resource-container-version="2"</span>
+                                        </p>
+                                        <p>
+                                            <a href="attachments/2423657916/2423657858.png"
+                                               data-linked-resource-id="2423657858"
+                                               data-linked-resource-version="1"
+                                               data-linked-resource-type="attachment"
+                                               data-linked-resource-default-alias="Splunk Search.png"
+                                               data-nice-type="Image"
+                                               data-linked-resource-content-type="image/png"
+                                               data-linked-resource-container-id="2423657916"
+                                               data-linked-resource-container-version="2">Splunk Search.png</a>
+                                        </p>
+                                        <p>
+                                            <a href="https://www.google.com/"
+                                               class="external-link"
+                                               rel="nofollow">https://www.google.com/</a>
+                                        </p>
+                                        <div class="table-wrap">
+                                            <table class="wrapped confluenceTable">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="confluenceTh">H1</th>
+                                                        <th class="confluenceTh">H2</th>
+                                                        <th class="confluenceTh">H3</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="confluenceTd">R1</td>
+                                                        <td class="confluenceTd">
+                                                            <ul>
+                                                                <li>a1</li>
+                                                                <li>a2</li>
+                                                                <li>a3</li>
+                                                            </ul>
+                                                        </td>
+                                                        <td class="confluenceTd">R13</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="confluenceTd">R2</td>
+                                                        <td class="confluenceTd">R22</td>
+                                                        <td class="confluenceTd">
+                                                            <p>R23</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p>
+                                            <br/>
+                                        </p>
+                                        <p>
+                                            <span class="confluence-embedded-file-wrapper">
+                                                <a class="confluence-embedded-file"
+                                                   href="/download/attachments/2423657916/DomainNotificationTransaction.doExecute.txt?version=1&amp;modificationDate=1610653143000&amp;api=v2"
+                                                   data-nice-type="Text File"
+                                                   data-file-src="/download/attachments/2423657916/DomainNotificationTransaction.doExecute.txt?version=1&amp;modificationDate=1610653143000&amp;api=v2"
+                                                   data-linked-resource-id="2423657868"
+                                                   data-linked-resource-type="attachment"
+                                                   data-linked-resource-container-id="2423657916"
+                                                   data-linked-resource-default-alias="DomainNotificationTransaction.doExecute.txt"
+                                                   data-mime-type="text/plain"
+                                                   data-has-thumbnail="true"
+                                                   data-linked-resource-version="1">
+                                                    <img src="rest/documentConversion/latest/conversion/thumbnail/2423657868/1"
+                                                         height="250"/>
+                                                </a>
+                                            </span>
+                                        </p>
+                                        <p>Below is a horizontal rule</p>
+                                        <hr/>
+                                        <p>Below is a date:</p>
+                                        <p>
+                                            <time datetime="2021-01-16"
+                                                  class="date-upcoming">16 Jan 2021</time>
+                                             
+                                        </p>
+                                        <p>
+                                            <br/>
+                                        </p>
+                                        <p>Smiley=
+                                            <img class="emoticon emoticon-smile"
+                                                 src="images/icons/emoticons/smile.svg"
+                                                 data-emoticon-name="smile"
+                                                 alt="(smile)"/>
+                                        </p>
+                                        <p>
+                                            <br/>
+                                        </p>
+                                        <p>Copyright Symbol=©</p>
+                                        <p>
+                                            <br/>
+                                        </p>
+                                        <p>
+                                            <a class="confluence-userlink user-mention current-user-mention"
+                                               data-username="PS028460"
+                                               href="https://wiki.cerner.com/display/~PS028460"
+                                               data-linked-resource-id="1170444651"
+                                               data-linked-resource-version="2"
+                                               data-linked-resource-type="userinfo"
+                                               data-base-url="https://wiki.cerner.com">Srivastava,Prachi</a>
+                                        </p>
+                                        <div class="confluence-information-macro confluence-information-macro-information">
+                                            <p class="title">Info Title</p>
+                                            <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"/>
+                                            <div class="confluence-information-macro-body">
+                                                <p>This is an Info block</p>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            <map id="gliffy-map-2423657900-1893"
+                                                 name="gliffy-map-2423657900-1893"/>
+                                            <table width="100%"
+                                                   class="gliffy-macro-table">
+                                                <tr>
+                                                    <td>
+                                                        <table class="gliffy-macro-inner-table">
+                                                            <caption align="bottom"/>
+                                                            <tr>
+                                                                <td>
+                                                                    <img style="border: none; width: 300px;"
+                                                                         usemap="#gliffy-map-2423657900-1893"
+                                                                         src="attachments/2423657916/2423657901.png"
+                                                                         alt=""
+                                                                         class="gliffy-macro-image"/>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </p>
+                                        <p>
+                                            <span class="status-macro aui-lozenge aui-lozenge-subtle">STATUS</span>
+                                        </p>
+                                        <p>
+                                            <div class="gallery">
+                                                <table>
+                                                    <tr>
+                                                        <td class="gallery-image"
+                                                            style="width: 300px">
+                                                            <img border="0"
+                                                                 src="attachments/thumbnails/2423657916/2423657901"
+                                                                 width="300"
+                                                                 height="284"
+                                                                 data-image-src="/download/attachments/2423657916/Test.png?version=1&amp;modificationDate=1610653143000&amp;api=v2"
+                                                                 class="confluence-embedded-image"
+                                                                 data-linked-resource-default-alias="Test.png"
+                                                                 data-linked-resource-id="2423657901"
+                                                                 data-linked-resource-container-id="2423657916"</td>
+                                                        <td class="gallery-image"
+                                                            style="width: 300px">
+                                                            <img border="0"
+                                                                 src="attachments/thumbnails/2423657916/2423657858"
+                                                                 width="300"
+                                                                 height="86"
+                                                                 data-image-src="/download/attachments/2423657916/Splunk%20Search.png?version=1&amp;modificationDate=1610653143000&amp;api=v2"
+                                                                 class="confluence-embedded-image"
+                                                                 data-linked-resource-default-alias="Splunk Search.png"
+                                                                 data-linked-resource-id="2423657858"
+                                                                 data-linked-resource-container-id="2423657916"</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width: 300px">
+                                                            <div class="gallery-caption">GLIFFY IMAGE</div>
+                                                        </td>
+                                                        <td/>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </p>
+                                        <p>
+                                            <br/>
+                                        </p>
+                                        <p>
+                                            <br/>
+                                        </p>
+                                        <p>
+                                            <br/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                                        <div class="pageSection group">
+                    <div class="pageSection group">
                         <div class="pageSectionHeader">
-                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                            <h2 id="attachments"
+                                class="pageSectionTitle">Attachments:</h2>
                         </div>
-
-                        <div class="greybox" align="left">
-                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
-                                <a href="attachments/2423657916/2423657858.png">Splunk Search.png</a> (image/png)
-                                <br/>
-                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
-                                <a href="attachments/2423657916/2423657868.txt">DomainNotificationTransaction.doExecute.txt</a> (text/plain)
-                                <br/>
-                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
-                                <a href="attachments/2423657916/2423657900">Test</a> (application/gliffy+json)
-                                <br/>
-                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
-                                <a href="attachments/2423657916/2423657901.png">Test.png</a> (image/png)
-                                <br/>
-                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
-                                <a href="attachments/2423657916/2423657910.bmpr">BalsamiqProject_2423657758.bmpr</a> (application/octet-stream)
-                                <br/>
-                                                    </div>
+                        <div class="greybox"
+                             align="left">
+                            <img src="images/icons/bullet_blue.gif"
+                                 height="8"
+                                 width="8"
+                                 alt=""/>
+                            <a href="attachments/2423657916/2423657858.png">Splunk Search.png</a>
+                            (image/png)
+                            <br/>
+                            <img src="images/icons/bullet_blue.gif"
+                                 height="8"
+                                 width="8"
+                                 alt=""/>
+                            <a href="attachments/2423657916/2423657868.txt">DomainNotificationTransaction.doExecute.txt</a>
+                            (text/plain)
+                            <br/>
+                            <img src="images/icons/bullet_blue.gif"
+                                 height="8"
+                                 width="8"
+                                 alt=""/>
+                            <a href="attachments/2423657916/2423657900">Test</a>
+                            (application/gliffy+json)
+                            <br/>
+                            <img src="images/icons/bullet_blue.gif"
+                                 height="8"
+                                 width="8"
+                                 alt=""/>
+                            <a href="attachments/2423657916/2423657901.png">Test.png</a>
+                            (image/png)
+                            <br/>
+                            <img src="images/icons/bullet_blue.gif"
+                                 height="8"
+                                 width="8"
+                                 alt=""/>
+                            <a href="attachments/2423657916/2423657910.bmpr">BalsamiqProject_2423657758.bmpr</a>
+                            (application/octet-stream)
+                            <br/>
+                        </div>
                     </div>
-                    
-                                                      
-                </div>             </div> 
-            <div id="footer" role="contentinfo">
+                </div>
+            </div>
+            <div id="footer"
+                 role="contentinfo">
                 <section class="footer-body">
                     <p>Document generated by Confluence on Jan 14, 2021 14:11</p>
-                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                    <div id="footer-logo">
+                        <a href="http://www.atlassian.com/">Atlassian</a>
+                    </div>
                 </section>
             </div>
-        </div>     </body>
+        </div>
+    </body>
 </html>

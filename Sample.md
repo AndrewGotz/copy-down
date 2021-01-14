@@ -1,4 +1,4 @@
-Prachi Srivastava : Sample Wiki for Hackathon    
+Prachi Srivastava : Sample Wiki for Hackathon   
 
 1.  [Prachi Srivastava](index.html)
 
@@ -102,27 +102,13 @@ This is an image
 
 [https://www.google.com/](https://www.google.com/)
 
-H1
+|H1|H2|H3|
+|---|---|---|
+|R1|*   a1|R13|
+|R2|R22|<br><br>R23<br><br>|
 
-H2
 
-H3
-
-R1
-
-R12
-
-R13
-
-R2
-
-R22
-
-R23
-
-  
-
-[![](rest/documentConversion/latest/conversion/thumbnail/2423657868/1)](/download/attachments/2423657916/DomainNotificationTransaction.doExecute.txt?version=1&modificationDate=1610653143000&api=v2)
+ [![](rest/documentConversion/latest/conversion/thumbnail/2423657868/1)](/download/attachments/2423657916/DomainNotificationTransaction.doExecute.txt?version=1&modificationDate=1610653143000&api=v2) 
 
 Below is a horizontal rule
 
@@ -134,7 +120,7 @@ Below is a date:
 
   
 
-Smiley=![(smile)](images/icons/emoticons/smile.svg)
+Smiley= ![(smile)](images/icons/emoticons/smile.svg)
 
   
 

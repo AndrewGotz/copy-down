@@ -30,7 +30,6 @@ public class Main {
     final String myHtml = readHtml();
     final CopyDown converter = new CopyDown();
     final String markdown = converter.convert(myHtml);
-    System.out.println(markdown);
     writeMarkDown(markdown);
   }
 

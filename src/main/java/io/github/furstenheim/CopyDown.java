@@ -139,12 +139,26 @@ public class CopyDown {
             }
             return content;
           }));
-          //TODO
           addRule("confluence-table", new Rule(element -> ((Element)element).tagName().contains("table"), (content, element) -> {
             if ("wrapped confluenceTable".equals(element.attr("class"))) {
-              //return element.toString();
-//              return process(new CopyNode("<ul><li>a1</li></ul>"));
-//              return process(new CopyNode(element.toString()));
+              final StringBuilder contentBuilder = new StringBuilder();
+              boolean isHeaderRow = false;
+              for (final Node row : element.childNodes().stream().filter(n -> n.nodeName().equals("tbody")).findFirst().get().childNodes()) {
+                for (final Node cell : row.childNodes()) {
+                  if (((Element) cell).tagName().equals("th")) { //th
+                    isHeaderRow = true;
+                  }
+                  final String value = cell.childNode(0).toString();
+                  final String processedValue = process(new CopyNode(value)).replace("\n", "<br>");
+                  contentBuilder.append('|').append(processedValue);
+                }
+                contentBuilder.append("|\n");
+                if (isHeaderRow) {
+                  contentBuilder.append(String.join("", Collections.nCopies(row.childNodes().size(), "|---"))).append("|\n");
+                  isHeaderRow = false;
+                }
+              }
+              return contentBuilder.toString();
             }
             return content;
           }));
