@@ -135,13 +135,19 @@ public class CopyDown {
         public Rules () {
           rules = new ArrayList<>();
 
-           //=======================confluence filters===================
-            addRule("confluence-code", new Rule(element -> ((Element)element).tagName().contains("div"), (content, element) -> {
+            //=======================confluence filters===================
+            addRule("confluence-div", new Rule(element -> ((Element)element).tagName().contains("div"), (content, element) -> {
               if ("codeContent panelContent pdl".equals(element.attr("class"))) {
                 return "```java\n" + content + "\n```";
               }
               return content;
             }));
+          addRule("confluence-table", new Rule(element -> ((Element)element).tagName().contains("table"), (content, element) -> {
+            if ("wrapped confluenceTable".equals(element.attr("class"))) {
+              return element.toString();
+            }
+            return content;
+          }));
 
             //======================others=================================
             addRule("blankReplacement", new Rule((element) -> CopyNode.isBlank(element), (content, element) ->
