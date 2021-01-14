@@ -135,6 +135,15 @@ public class CopyDown {
         public Rules () {
           rules = new ArrayList<>();
 
+           //=======================confluence filters===================
+            addRule("confluence-code", new Rule(element -> ((Element)element).tagName().contains("div"), (content, element) -> {
+              if ("codeContent panelContent pdl".equals(element.attr("class"))) {
+                return "```java\n" + content + "\n```";
+              }
+              return content;
+            }));
+
+            //======================others=================================
             addRule("blankReplacement", new Rule((element) -> CopyNode.isBlank(element), (content, element) ->
                     CopyNode.isBlock(element) ? "\n\n" : ""));
             addRule("paragraph", new Rule("p", (content, element) -> {return "\n\n" + content + "\n\n";}));
@@ -162,9 +171,6 @@ public class CopyDown {
                     return "\n\n" + content + "\n\n";
                 }
             }));
-          addRule("confluencecode", new Rule("ac:structured-macro", (content, element) -> {
-            return "```java" + content + "```";
-          }));
             addRule("listItem", new Rule("li", (content, element) -> {
                 content = content.replaceAll("^\n+", "") // remove leading new lines
                         .replaceAll("\n+$", "\n") // remove trailing new lines with just a single one

@@ -40,8 +40,8 @@ class Rule {
         this.filter = filter;
         this.replacement = replacement;
     }
-
     Rule(
+
         final Predicate<Node> filter, final BiFunction<String, Node, String> replacement,
         final Supplier<String> append) {
         this.filter = filter;

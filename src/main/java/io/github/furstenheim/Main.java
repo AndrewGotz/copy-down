@@ -4,29 +4,34 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 
 public class Main {
 
-  public static void main(final String[] args) throws Exception {
-    final CopyDown converter = new CopyDown();
+  private static String readHtml() throws Exception {
     final StringBuilder contentBuilder = new StringBuilder();
     try (final BufferedReader in = new BufferedReader(
-        new FileReader("Sample.html"))) {
+        new FileReader("Exported.html"))) {
       String str;
       while ((str = in.readLine()) != null) {
         contentBuilder.append(str);
       }
-    } catch (final IOException e) {
     }
-    final String myHtml = contentBuilder.toString();
-    final String markdown = converter.convert(myHtml);
+    return contentBuilder.toString();
+  }
+
+  private static void writeMarkDown(final String markdown) throws Exception {
     try (final BufferedWriter writer = new BufferedWriter(
         new FileWriter("Sample.md"))) {
       writer.write(markdown);
-    } catch (final Exception e) {
-      e.printStackTrace();
     }
+  }
+
+  public static void main(final String[] args) throws Exception {
+    final String myHtml = readHtml();
+    final CopyDown converter = new CopyDown();
+    final String markdown = converter.convert(myHtml);
+    System.out.println(markdown);
+    writeMarkDown(markdown);
   }
 
 }
