@@ -135,7 +135,7 @@ public class CopyDown {
         private void addConfluenceRules() {
           addRule("confluence-div", new Rule(element -> ((Element)element).tagName().contains("div"), (content, element) -> {
             if ("codeContent panelContent pdl".equals(element.attr("class"))) {
-              return "```java\n" + content + "\n```";
+              return "\n```java\n" + content + "\n```\n";
             }
             return content;
           }));
