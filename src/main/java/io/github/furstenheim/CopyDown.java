@@ -140,7 +140,7 @@ public class CopyDown {
             return content;
           }));
           addRule("confluence-table", new Rule(element -> ((Element)element).tagName().contains("table"), (content, element) -> {
-            if ("wrapped confluenceTable".equals(element.attr("class"))) {
+            if ("wrapped confluenceTable".equals(element.attr("class")) || element.attr("class").contains("confluenceTable")) {
               final StringBuilder contentBuilder = new StringBuilder();
               boolean isHeaderRow = false;
               for (final Node row : element.childNodes().stream().filter(n -> n.nodeName().equals("tbody")).findFirst().get().childNodes()) {

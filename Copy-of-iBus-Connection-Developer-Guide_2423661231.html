@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rangabhatla,Sai Pranav : Copy of iBus Connection Developer Guide</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Rangabhatla,Sai Pranav</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="2319788389.html">Rangabhatla,Sai Pranav’s Home</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Rangabhatla,Sai Pranav : Copy of iBus Connection Developer Guide
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created on Jan 15, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/></colgroup><tbody><tr><th class="confluenceTh"><p>Table of Contents</p></th></tr><tr><td class="confluenceTd"><div class="content-wrapper"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1610725592858 {padding: 0px;}
+div.rbtoc1610725592858 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1610725592858 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1610725592858'>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>1</span> <a href='#CopyofiBusConnectionDeveloperGuide-Introduction'>Introduction</a></li>
+<li><span class='TOCOutline'>2</span> <a href='#CopyofiBusConnectionDeveloperGuide-Twocommunicationtypes'>Two communication types</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>2.1</span> <a href='#CopyofiBusConnectionDeveloperGuide-Request/Reply'>Request / Reply</a></li>
+<li><span class='TOCOutline'>2.2</span> <a href='#CopyofiBusConnectionDeveloperGuide-Publish/Subscribe'>Publish / Subscribe</a></li>
+<li><span class='TOCOutline'>2.3</span> <a href='#CopyofiBusConnectionDeveloperGuide-Payloadwrapperclasses'>Payload wrapper classes</a></li>
+<li><span class='TOCOutline'>2.4</span> <a href='#CopyofiBusConnectionDeveloperGuide-Payloadwrapperfactories'>Payload wrapper factories</a></li>
+<li><span class='TOCOutline'>2.5</span> <a href='#CopyofiBusConnectionDeveloperGuide-Deserialization'>Deserialization</a></li>
+</ul>
+</li>
+<li><span class='TOCOutline'>3</span> <a href='#CopyofiBusConnectionDeveloperGuide-IBusConnection'>IBusConnection</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>3.1</span> <a href='#CopyofiBusConnectionDeveloperGuide-Gettingtheconnection'>Getting the connection</a></li>
+</ul>
+</li>
+<li><span class='TOCOutline'>4</span> <a href='#CopyofiBusConnectionDeveloperGuide-Publishingamessage'>Publishing a message</a></li>
+<li><span class='TOCOutline'>5</span> <a href='#CopyofiBusConnectionDeveloperGuide-Invokingrequest/reply'>Invoking request / reply</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>5.1</span> <a href='#CopyofiBusConnectionDeveloperGuide-Example:Invokingarequest(blocking)'>Example: Invoking a request (blocking)</a></li>
+<li><span class='TOCOutline'>5.2</span> <a href='#CopyofiBusConnectionDeveloperGuide-Example:Invokingarequest(asyncusingfutures)'>Example: Invoking a request (async using futures)</a></li>
+<li><span class='TOCOutline'>5.3</span> <a href='#CopyofiBusConnectionDeveloperGuide-Example:Invokingarequest(asyncusingcallbacks)'>Example: Invoking a request (async using callbacks)</a></li>
+<li><span class='TOCOutline'>5.4</span> <a href='#CopyofiBusConnectionDeveloperGuide-Combiningasyncoptions'>Combining async options</a></li>
+<li><span class='TOCOutline'>5.5</span> <a href='#CopyofiBusConnectionDeveloperGuide-CustomExceptions'>Custom Exceptions</a></li>
+</ul>
+</li>
+<li><span class='TOCOutline'>6</span> <a href='#CopyofiBusConnectionDeveloperGuide-Channels'>Channels</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>6.1</span> <a href='#CopyofiBusConnectionDeveloperGuide-Channelhierarchy'>Channel hierarchy</a></li>
+<li><span class='TOCOutline'>6.2</span> <a href='#CopyofiBusConnectionDeveloperGuide-Request/Replychannels'>Request / Reply channels</a></li>
+<li><span class='TOCOutline'>6.3</span> <a href='#CopyofiBusConnectionDeveloperGuide-Pub/Subchannels'>Pub / Sub channels</a></li>
+</ul>
+</li>
+<li><span class='TOCOutline'>7</span> <a href='#CopyofiBusConnectionDeveloperGuide-Serialization'>Serialization</a></li>
+<li><span class='TOCOutline'>8</span> <a href='#CopyofiBusConnectionDeveloperGuide-Subscriptions'>Subscriptions</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>8.1</span> <a href='#CopyofiBusConnectionDeveloperGuide-MessageSubscription'>MessageSubscription</a></li>
+<li><span class='TOCOutline'>8.2</span> <a href='#CopyofiBusConnectionDeveloperGuide-MessageSubscriptionManager'>MessageSubscriptionManager</a></li>
+<li><span class='TOCOutline'>8.3</span> <a href='#CopyofiBusConnectionDeveloperGuide-Example:Registeringforamessage'>Example: Registering for a message</a></li>
+</ul>
+</li>
+<li><span class='TOCOutline'>9</span> <a href='#CopyofiBusConnectionDeveloperGuide-Connectionendpoints'>Connection endpoints</a>
+<ul class='toc-indentation'>
+<li><span class='TOCOutline'>9.1</span> <a href='#CopyofiBusConnectionDeveloperGuide-Predefinedconnectionendpoints'>Predefined connection endpoints</a></li>
+<li><span class='TOCOutline'>9.2</span> <a href='#CopyofiBusConnectionDeveloperGuide-ResolvingtheconnectionURL'>Resolving the connection URL</a></li>
+</ul>
+</li>
+<li><span class='TOCOutline'>10</span> <a href='#CopyofiBusConnectionDeveloperGuide-Otherfeatures'>Other features</a></li>
+<li><span class='TOCOutline'>11</span> <a href='#CopyofiBusConnectionDeveloperGuide-RelatedLinks'>Related Links</a></li>
+</ul>
+</div></div></td></tr></tbody></table></div><h1 id="CopyofiBusConnectionDeveloperGuide-Introduction">Introduction</h1><p>The iBus message connection framework provides the ability to communicate remotely between multiple connections. It is designed to provide reliable, real-time communication, and is the backbone for most of the iBus.</p><p>If you are interested in the explanation about why the old connection framework has been replaced, and the differences between them, check out the <a class="createlink" href="/pages/createpage.action?spaceKey=~SR076956&amp;title=New+Connection+Framework+vs+Old&amp;linkCreation=true&amp;fromPageId=2423661231">New Connection Framework vs Old</a>.</p><p><br/></p><h1 id="CopyofiBusConnectionDeveloperGuide-Twocommunicationtypes">Two communication types</h1><p>The iBus message connection framework supports two types of communication: request / reply and publish / subscribe.</p><h3 id="CopyofiBusConnectionDeveloperGuide-Request/Reply">Request / Reply</h3><p>This is a two-way type of communication where a sender publishes a request, and if any recipient is listening to those requests, the recipient will respond with a reply.</p><p>
+
+<map id="gliffy-map-2423661229-7321" name="gliffy-map-2423661229-7321"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 366px;" usemap="#gliffy-map-2423661229-7321" src="attachments/2423661231/2423661230.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p><p>Even though traditionally the sender will block and wait for a request or timeout after a specified period, the iBus message connection framework actually supports two additional non-blocking ways to handle replies, which we will look at later in this guide.</p><p>This type of communication is one-to-one, in that one sender will communicate with one and only one recipient per request. There may be multiple recipients available (for example, multiple services running), but only one of those possible recipients will actually be given the request. The others are available to handle other requests from other senders.</p><h3 id="CopyofiBusConnectionDeveloperGuide-Publish/Subscribe">Publish / Subscribe</h3><p>(Pub / sub for short) is a one-way type of communication is used for asynchronous send messages. For example, this includes things like: alerts, change events, device data, other notifications, etc.</p><p>
+
+<map id="gliffy-map-2423661227-8575" name="gliffy-map-2423661227-8575"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 310px;" usemap="#gliffy-map-2423661227-8575" src="attachments/2423661231/2423661228.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p><p>This type of communication is one-to-many, in that one sender will publish a message, and does not wait for it to be received. After the message is sent, it may be received by any number of recipients. Multiple recipients may be listening, or there may be only one, or there may not even be anyone listening for that particular message. Even if no one is listening, the message is still published, but it goes no where. The sender does not know if anyone did or did not receive the message it sent.</p><p>
+
+<map id="gliffy-map-2423661225-7907" name="gliffy-map-2423661225-7907"></map>
+<table width="100%" class="gliffy-macro-table">
+    <tr>
+        <td >
+            <table class="gliffy-macro-inner-table">
+                <caption align="bottom">
+                                    </caption>
+                <tr>
+                    <td>
+                        <img style="border: none; width: 366px;" usemap="#gliffy-map-2423661225-7907" src="attachments/2423661231/2423661226.png" alt="" class="gliffy-macro-image"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+</p><h3 id="CopyofiBusConnectionDeveloperGuide-Payloadwrapperclasses">Payload wrapper classes</h3><p>There are wrapper classes that represent the request, the reply, and the message that is published. For example, when you need to publish a notification, the notification itself is an object that you own. It gets serialized and published on a specific channel, which allows recipients to receive that notification. When you go to publish that notification, you actually hand the connection framework a wrapper object. The wrapper object for pub / sub messages is called IBusMessage. The IBusRequest is the wrapper class for requests, and the IBusReply is the wrapper class for replies.</p><p>These wrapper objects contain everything about that request, including the channel, the transaction name, who sent the message, what time it was sent, and the payload objects which are serialized as a byte array. But behind all of these messages are two primary things:</p><ul><li>The serialized payload object, which is stored as a byte array.</li><li>A set of properties</li></ul><p>They are represented by these getter methods on the IBusMessage, IBusRequest, and IBusReply objects:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public byte[] getBytes()
+
+public Map&lt;String, String&gt; getProperties()
+</pre>
+</div></div><h3 id="CopyofiBusConnectionDeveloperGuide-Payloadwrapperfactories">Payload wrapper factories</h3><p>In order to create these payload wrapper classes, you will need to use the corresponding factory class for each payload type: IBusRequestFactory, IBusReplyFactory, and IBusMessageFactory. The available wrapper classes are:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public class IBusMessageFactory {
+    public IBusMessage newMessage(final String channel, final Object payload)
+}</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public class IBusRequestFactory {
+    public IBusRequest newRequest(final String transaction, final Object payload)
+}</pre>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public class IBusReplyFactory {
+    public IBusReply newReply(final IBusRequest request, final Object payload)
+}
+</pre>
+</div></div><p>The difference between these factory classes and standard builder classes are that factory classes contain additional business logic, and are designed and intended to be reused. They are often going to either be injected, or created statically.</p><p>For example, you can set a property (like a time out or some other attribute) on the factory that is applied to all payload objects. You also define the serialization mode you want on them, and they take care of serializing the payload objects for you.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">private static final IBusMessageFactory MESSAGE_FACTORY = IBusMessageFactory.newFactory().encoding(KryoV1Serializer.ENCODING).timeToLive(5, TimeUnit.MINUTES).priority(2).property(&quot;myProp&quot;, &quot;myValue&quot;);</pre>
+</div></div><p>With the message factory above, any message created will use Kryo version 1 encoding to serialize the object, it is allowed to expire after 5 minutes, it has a priority of 2, and a custom property with a key of &quot;myProp&quot; and a value of &quot;myValue&quot;.</p><h3 id="CopyofiBusConnectionDeveloperGuide-Deserialization">Deserialization</h3><p>When an IBusMessage is created, the object is serialized into a byte array. But one interesting feature is that when the IBusMessage is delivered to the receiver, the connection framework does not deserialize the object for you by default. In fact, you don't even have to deserialize the payload if you do not want to. This may seem weird at first, but it actually unlocks some great benefits which we don't need to get in to yet.</p><p>When you actually want to get the object, you simply call the deserializePayload() method of the payload wrapper class, which deserializes and returns the actual object.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public &lt;O&gt; O deserializePayload()</pre>
+</div></div><p>Even though that is easy enough to do, the connection framework provides additional ways to deal with payloads such that consumers don't even need to deal with the payload wrapper classes if they don't want to.</p><h1 id="CopyofiBusConnectionDeveloperGuide-IBusConnection">IBusConnection</h1><p>One of the goals with the new connection framework was to make it simple, so there are not <span class="inline-comment-marker" data-ref="fdbff030-2c28-4567-b2c1-52b3c0c306b0"><span class="inline-comment-marker" data-ref="e8e48f74-e57d-492f-9461-6c9442358e37">many</span></span> classes that you need to understand in order to use the connection framework. The IBusConnection class (as you probably guessed it) represents a single connection. Everything in the connection framework revolves around this class. This is where you publish messages, invoke replies, and this is where you get subscription managers from, which are used to register for messages, and register to handle replies.</p><p>While there are other methods provided on the IBusConnection interface, these are the primary methods that you will want to understand:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">    // ===== Publish / Subscribe ==================================================================================
+
+    public void publish(final IBusMessage message) throws IBusConnectionException;
+    
+    public FutureAck publishAync(final IBusMessage message);
+    
+    public MessageSubscriptionManager newMessageManager() throws IBusConnectionException;
+
+    // ===== Request / Reply ======================================================================================
+
+    public IBusReply invoke(final IBusRequest request) throws IBusConnectionException, IBusTimeoutException, InterruptedException;
+
+    public FutureReply invokeAsync(final IBusRequest request);
+
+    public RequestSubscriptionManager newRequestManager() throws IBusConnectionException;
+</pre>
+</div></div><h3 id="CopyofiBusConnectionDeveloperGuide-Gettingtheconnection">Getting the connection</h3><p>There are two basic ways to get an IBusConnection object. With services, or anything using the ObjectLoader, you simply just inject it like you would with anything else. Refer to the <a class="createlink" href="/pages/createpage.action?spaceKey=~SR076956&amp;title=iBus+Dependency+Injection+Developer+Guide&amp;linkCreation=true&amp;fromPageId=2423661231">iBus Dependency Injection Developer Guide</a> for more information.</p><p>For code not using dependency injection, you can manually get a connection by calling the ConnectionManager.connect() method.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">final IBusConnection connection = ConnectionManager.connect(&quot;PROD&quot;);
+... or ...
+final IBusConnection connection = ObjectLoader.init(&quot;PROD&quot;).get(IBusConnection.class);</pre>
+</div></div><h1 id="CopyofiBusConnectionDeveloperGuide-Publishingamessage">Publishing a message</h1><p>Once you have a connection, <span class="inline-comment-marker" data-ref="6e920cc7-53b1-4bc4-a713-4598ae067d49">there</span> are the three steps you need in order to publish a message:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public void publishExample(final ExampleNotification notification) throws IBusConnectionException {
+    final IBusMessageFactory factory = IBusMessageFactory.newFactory().encoding(&quot;ExampleEncoding&quot;);
+    final IBusMessage message = factory.newMessage(&quot;ExampleChannel&quot;, notification);
+    connection.publish(message);
+}
+</pre>
+</div></div><p>In the example above, we create the IBusMessage wrapper class for the given example notification, and publish the message.</p><p>In many situations you'll probably create the factory once, and reuse it multiple times. Which means your code might typically looks something as simple as this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// Factories are how you create messages. You can set all kinds of properties that apply to every message that factory creates.
+private static final IBusMessageFactory MESSAGE_FACTORY = IBusMessageFactory.newFactory().serializer(new KryoV1Serializer());
+
+public void publishExample(final ExampleNotification notification) throws IBusConnectionException {
+    connection.publish(MESSAGE_FACTORY.newMessage(&quot;ExampleChannel&quot;, notification));
+}
+</pre>
+</div></div><p>IBusMessageFactory can also be injected in services and the encoding/serializer set using the Encoding annotation. You can use the newBuilder method to get the IBusMessage.Builder and set extra properties on the message such as time-to-live or custom properties.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">@Encoding(KryoV1Serializer.ENCODING)
+private IBusMessageFactory msgFactory;
+
+public void publishExample(final ExampleNotification notification) throws IBusConnectionException {
+    connection.publish(msgFactory.timeToLive(5, TimeUnit.SECONDS).newBuilder(&quot;ExampleChannel&quot;, notification).property(&quot;MY_KEY&quot;, &quot;MyValue&quot;).build());
+}</pre>
+</div></div><p>There is also an &quot;async&quot; publish option that is useful for clients that enable <a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection/1.4.0/apidocs/com/cerner/careaware/ibus/connection/ConnectionConfig.ClientPersistenceConfig.html" class="external-link" rel="nofollow">client persistence</a>. The publish of the message is still blocking but the ack/nack of that publish is asynchronous. With client persistence enabled, the publish ack is not sent until the message is written to disk on the server. It is not uncommon for that ack to take up to 1 second to be received.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">final FutureAck futureAck = connection.publishAsync(factory.newMessage(&quot;ExampleChannel&quot;, notification));
+futureAck.thenCall(new PublishSuccessHandler(){});
+futureAck.exceptionally(new PublishFailureHandler(){});
+... or ...
+futureAck.await(5, TimeUnit.SECONDS);</pre>
+</div></div><h1 id="CopyofiBusConnectionDeveloperGuide-Invokingrequest/reply">Invoking request / reply</h1><p>There are three ways to invoke a request / reply method.</p><p>Most of the time, you'll be using a client transaction. However the client transactions expose the exact same methods, and simply wrap these three methods described below.</p><h3 id="CopyofiBusConnectionDeveloperGuide-Example:Invokingarequest(blocking)">Example: Invoking a request (blocking)</h3><p>Invoking a request is similar to how you publish a message.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public void invokeExample(final ExampleQuery query) throws IBusConnectionException, IBusTimeoutException, InterruptedException {
+    final IBusRequestFactory factory = IBusRequestFactory.newFactory(&quot;ExampleChannel&quot;).encoding(&quot;ExampleEncoding&quot;);
+    final IBusRequest request = factory.newRequest(&quot;ExampleTransactionName&quot;, query);
+    final IBusReply reply = connection.invoke(request);
+    final ExampleResponse response = reply.deserializePayload();
+}</pre>
+</div></div><p>In the example above, we create the IBusRequest wrapper class for the given example query, and then invoke the request. This blocks until we either receive the reply, or a timeout, interruption, or other exception happens. Once we have the reply, we can deserialize the payload to get our example response object.</p><p>Again as we saw before, in many situations you'll probably create the factory once, and reuse it multiple times. Which means your code might typically looks something more like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">private static final IBusRequestFactory REQUEST_FACTORY = IBusRequestFactory.newFactory(&quot;ExampleChannel&quot;).encoding(KryoV1Serializer.ENCODING);
+
+public void invokeExample(final ExampleQuery query) throws IBusConnectionException, IBusTimeoutException, InterruptedException {
+    final IBusRequest request = REQUEST_FACTORY.newRequest(&quot;ExampleTransactionName&quot;, query);
+    final ExampleResponse response = connection.invoke(request).deserializePayload();
+}</pre>
+</div></div><h3 id="CopyofiBusConnectionDeveloperGuide-Example:Invokingarequest(asyncusingfutures)">Example: Invoking a request (async using futures)</h3><p>We can also use transactions asynchronously. Instead of calling <code>invoke()</code>, we are actually going to call <code>invokeAsync()</code>, which will return a FutureReply, which is similar to the standard Java Future.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">final FutureReply&lt;ExampleResponse&gt; future = connection.invokeAsync(request);
+...
+final IBusReply reply = future.awaitReply();
+final ExampleResponse response = reply.deserializePayload();</pre>
+</div></div><p>The awaitReply() method returns immediately if the reply has already returned, otherwise it will block until the reply returns (just like our blocking example above). This means that the thread can continue to run while the transaction is in progress. We get to decide when (or if) we care to wait. Exceptions are thrown by the await() method, which means we do not need to handle them until we are ready to call await().</p><p>Additionally, there is a helper method for those two lines:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">final FutureReply&lt;ExampleResponse&gt; future = connection.invokeAsync(request);
+...
+final ExampleResponse response = future.await();</pre>
+</div></div><p>The await methods are thread safe, which means more than one thread can wait for the same reply to return.</p><h3 id="CopyofiBusConnectionDeveloperGuide-Example:Invokingarequest(asyncusingcallbacks)">Example: Invoking a request (async using callbacks)</h3><p>Another way to use transactions asynchronously is by using callbacks. Like we did above, we call <code>invokeAsync()</code> to get the FutureReply. However we can set callbacks (aka &quot;listeners&quot;) that will be notified. They provide similar behavior to that of a <code>try / </code><code>catch / finally </code>block, except that you register callback listeners which are notified as soon as the reply comes back, when there is an exception, and once everything has finished.</p><p>Note: These method names are based off of the Java 8 CompletableFuture class.</p><p><br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">connection.invokeAsync(request).thenCall(new ReplyHandler() {
+    @Override
+    public void onReply(final IBusReply reply) throws Exception {
+        final ExampleResponse response = reply.deserializePayload();
+    }
+});</pre>
+</div></div><p>In the example above, we are notified when the ExampleResponse is returned. This means we never need to wait. You can also choose to implement the PayloadHandler interface instead of the ReplyHandler interface. With the PayloadHandler the framework will already do the deserialization for you and hand you just the deserialized payload. The tenant in context when making the request will also be in context on the thread calling into onReply. A DataTransaction will also be started just like it is with request and message handlers.</p><p><br/></p><p>One thing to note is that there are no exceptions thrown by the code above. There are a few ways to deal with exceptions, but one way is to register a RequestFailureHandler like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Exception callback</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">future.exceptionally(new RequestFailureHandler() {
+    @Override
+    public void onFailure(final IBusRequest request, final Exception exception) {
+    }
+});</pre>
+</div></div><p>The code will be called when (and only if) an exception happens for the given request.</p><p><br/></p><p>And then finally (pun intended), we have the <code>thenFinally</code> method, which will always execute a runnable at the very end, no matter if the reply was successful or if there was an exception.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Upon finishing callback</b></div><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">future.thenFinally(new Runnable() {
+    @Override
+    public void run() {
+    }
+});</pre>
+</div></div><h3 id="CopyofiBusConnectionDeveloperGuide-Combiningasyncoptions">Combining async options</h3><p>Both the future blocking and callbacks can be used together on the same request. You may have as many threads as required calling <code>await()</code> on the future, and you may add as many callbacks as needed. The callbacks are always called in the order you add them.</p><p><br/></p><h3 id="CopyofiBusConnectionDeveloperGuide-CustomExceptions">Custom Exceptions</h3><p>When a request handler (for example, the service) throws any kind of exception, the consumer receives an IBusRemoteInvocationException. Custom clients-side exception can also be created, which can be thrown by the request handler, and re-thrown on the consumer's side. These custom exception classes extend IBusRemoteInvocationException, and are serialized as the payload of the reply.</p><p>The best example of this is when the request is invalid for any reason. Because this is so common, an IBusBadRequestException is provided, which can (and should) be thrown by services when validating the request.</p><p>The need for other custom exceptions is not very common, and should is generally not recommend unless it is required by a specific circumstance.</p><p><br/></p><h1 id="CopyofiBusConnectionDeveloperGuide-Channels">Channels</h1><p>When you publish and subscribe, you must do so on a &quot;channel&quot;. Channels in the iBusConnection api are synonymous with topics and topic hierarchies in JMS world (You can find many articles on the web going into more detail on JMS topic hierarchy structures and strategies).</p><h3 id="CopyofiBusConnectionDeveloperGuide-Channelhierarchy">Channel hierarchy</h3><p>iBus channels should be hierarchical as well so consumers can register subscriptions at different levels to get more or less data. Hierarchy levels are separated with a '.' character. The wildcards '*' and '#' can be used on the subscribing side. The '*' wildcard matches on any value at this specific hierarchical level. The '#' matches on any value at 0 or more hierarchical levels. (Note: The '#' is generally only recommended to be used at the end of your subscription channel. Some impls like RabbitMQ allow it to be in the middle and/or the use of multiple '#'s, but others such as SonicMQ do not.) This is probably easiest explain using an example:</p><p>A news website publisher may publish on channels such as:</p><ul><li>NEWS.WORLD.TOPSTORIES</li><li>NEWS.LOCAL.TOPSTORIES</li><li>NEWS.SPORTS.TOPSTORIES</li><li>NEWS.SPORTS.NFL.CHIEFS</li><li>NEWS.SPORTS.MLB.ROYALS</li></ul><p>As a subscriber, i could register on the following channels:</p><ul><li>NEWS.# - to get all news</li><li>NEWS.*.TOPSTORIES - to get all top stories across categories including: world news, local news, sports, etc.</li><li>NEWS.SPORTS.# - to get all sports news</li><li>NEWS.SPORTS.NFL.# - to get only NFL news</li><li>NEWS.SPORTS.NFL.CHIEFS = to get only Chiefs news</li></ul><h3 id="CopyofiBusConnectionDeveloperGuide-Request/Replychannels">Request / Reply channels</h3><p><span><span><span><span><span>When using <a class="createlink" href="/pages/createpage.action?spaceKey=~SR076956&amp;title=iBus+Client+Interface+Developer+Guide&amp;linkCreation=true&amp;fromPageId=2423661231">client interfaces</a>, the channels are built out for you under the covers, so you never need to worry about it. However, let's take a look at what is built out, as we'll use the same pattern for pub / sub.</span></span></span></span></span></p><p><span><span><span><span><span><br/></span></span></span></span></span></p><p><span><span><span><span><span>Request / reply channels look like this:</span></span></span></span></span></p><ul><li><span><span><span><span><span>REQUEST.&lt;ClientName&gt;.&lt;transactionName&gt;</span></span></span></span></span></li></ul><p><span><span><span><span><span>For &lt;ClientName&gt;, it should be the name of your interface (using standard ClassCamelCase), minus the word &quot;Client&quot;. So, for the &quot;RestaurantClient&quot; interface, the ClientName is called &quot;Restaurant&quot;. You can also use IBusClientFactory.getClientName(MyClient.class) to get the client name.</span></span></span></span></span></p><p><span><span><span><span><span>For &lt;transactionName&gt;, it should be the name of your transaction class, with a lowercase first letter (using standard methodCamelCase), minus the word &quot;Transaction&quot;. So, for the &quot;GetMenusTransaction&quot;, it would just be &quot;getMenus&quot;. You can also use IBusClientFactory.getTransactionName(MyTransaction.class) to get the transaction name.</span></span></span></span></span></p><p><span><span><span><span><span><br/></span></span></span></span></span></p><p><span><span><span><span><span>Putting it all together, you end up with:</span></span></span></span></span></p><ul><li><span><span><span><span><span>REQUEST.Restaurant.getMenus</span></span></span></span></span></li></ul><p><br/></p><h3 id="CopyofiBusConnectionDeveloperGuide-Pub/Subchannels">Pub / Sub channels</h3><p>Unlike request / reply, channels used for publishing and subscribing to messages need to be structured manually, and you want to design your publish channels properly.</p><p><br/></p><p>Similar to request / reply, all published messages should start with the &quot;PUBLISH&quot; prefix. This allows us to easily identify publish vs request traffic on the bus.</p><p>Additionally, they also need to include the client name next (refer to the section above for more information on the client name). This means we start out with:</p><ul><li>PUBLISH.&lt;ClientName&gt;</li></ul><p><br/></p><p>However, what comes next is what you need to design. You want to allow enough space for different types of publishes to be used by the same client. Don't be short-sighted here, as it's easy restrict what you can do in the future by not designing your channel hierarchy properly.</p><p>In general, you often end up a structure that says:</p><ul><li>PUBLISH.&lt;ClientName&gt;.&lt;what is the concept&gt;.&lt;what happened&gt;.&lt;someId&gt;</li></ul><p>Ending the channel with the ID of the concept you are using is a generally a good idea (although there may be times you want something different). You can set header properties to allow filtering, but filtering by channel is usually always the most efficient option. Even if you don't need to filter by ID yet, it's still usually better publish with more information than you need now, as it adds more options in the future (even if it is just for troubleshooting).</p><p><br/></p><p><span><span><span><span><span>For example, h</span></span></span></span></span>ere's a channel that we could use to publish updates to Menu items. Pretend that Menus don't have IDs, but they do have different types of menus, like BREAKFAST vs LUNCH, etc.)</p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.menu.update.&lt;menuType&gt;</span></span></span></span></span></li></ul><p><span><span><span><span><span>Here's a channel that could be used for publishing status updates to a customer's order.</span></span></span></span></span></p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.order.status.&lt;orderId&gt;</span></span></span></span></span></li></ul><p><span><span><span><span><span>This gives us room to also create a publish channel for submitting orders (although in reality that would likely be request / reply, and no a publish):</span></span></span></span></span></p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.order.submit.&lt;orderId&gt;</span></span></span></span></span></li></ul><p><span><span><span><span><span><br/>The the structure matters, as it defines what you can and can't do.<br/>For example, you can register for:</span></span></span></span></span></p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.order.status.#</span></span></span></span></span></li></ul><p><span><span><span><span><span>to receive all status updates for all orders. Or, you can register for:</span></span></span></span></span></p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.order.status.1234</span></span></span></span></span></li></ul><p><span><span><span><span><span>to just receive status updates for order 1234. You can register for:</span></span></span></span></span></p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.order.#</span></span></span></span></span></li></ul><p><span><span><span><span><span>to watch and monitor all &quot;order&quot; based traffic, or you can register for:</span></span></span></span></span></p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.#</span></span></span></span></span></li></ul><p><span><span><span><span><span>to view all pub / sub traffic for the Restaurant client.</span></span></span></span></span></p><p><br/></p><p><span><span><span><span><span>Again, you may not need that functionality yet, but it still helps to build channels based on a logical hierarchy. It doesn't hurt performance, and still makes troubleshooting (message sniffing) easier when needed.</span></span></span></span></span></p><p><span><span><span><span><span>When it comes to registering for these channels, it is totally appropriate (and usually the case) that you will be registering for something like:<br/></span></span></span></span></span></p><ul><li>PUBLISH.Restaurant.menu.update.#</li></ul><p>You don't have to filter by everything in the channel yet.</p><p><br/></p><p><span><span><span><span><span>While the structure defined above is a pretty safe cookie cutter pattern, you still need to think through your situation. For example, for the RestaurantClient, is the service is managing multiple restaurants, you may want to add the &lt;restaurantId&gt; in there too.</span></span></span></span></span></p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.menu.update.&lt;restaurantId&gt;.&lt;menuType&gt;</span></span></span></span></span></li><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.order.status.&lt;restaurantId&gt;.&lt;orderId&gt;</span></span></span></span></span></li></ul><p><span><span><span><span><span>This allows you to monitor all order traffic for a specific restaurant:</span></span></span></span></span></p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.order.status.R1234.#</span></span></span></span></span></li></ul><p><span><span><span><span><span>or you can monitor all order traffic for all restaurants:</span></span></span></span></span></p><ul><li><span><span><span><span><span><span><span><span><span><span>PUBLISH</span></span></span></span></span>.Restaurant.order.status.#</span></span></span></span></span></li></ul><p><span><span><span><span><span><br/></span></span></span></span></span></p><p><br/></p><h1 id="CopyofiBusConnectionDeveloperGuide-Serialization">Serialization</h1><p>The serialization portion is pluggable via the <a style="font-size: 14.0px;" href="https://github.cerner.com/ibus-core/ibus-core-data" class="external-link" rel="nofollow">DataSerializer</a><span style="font-size: 14.0px;"> interface. As mentioned above, the easiest way to set is via use of the @Encoding annotation.</span></p><p>The available encodings/serializers are:</p><ol><li>&quot;KryoV1&quot; - <a href="https://github.cerner.com/ibus-core/ibus-core-data-kryo" class="external-link" rel="nofollow">ibus-core-data-kryo</a></li><li>&quot;GsonV1&quot; - <a href="https://github.cerner.com/ibus-core/ibus-core-data-gson" class="external-link" rel="nofollow">ibus-core-data-gson</a> (gson/json does not handle generics or polymorphism in most cases so this only works for basic data models with concrete types)</li><li>&quot;XStream131&quot; - <a href="https://github.cerner.com/ibus-core/ibus-core-data-xstream" class="external-link" rel="nofollow">ibus-core-data-xstream</a> (Not recommend for large payloads due to verboseness of XML)</li><li>&quot;RawString&quot; - Doesn't provide any POJO serialization... only supports raw String data - <a href="https://github.cerner.com/ibus-core/ibus-core-data" class="external-link" rel="nofollow">ibus-core-data</a></li><li>&quot;RawBytes&quot; - Doesn't provide any POJO serialization... only supports raw byte[] data - <a href="https://github.cerner.com/ibus-core/ibus-core-data" class="external-link" rel="nofollow">ibus-core-data</a></li><li><strong>Deprecated - </strong>&quot;ENCODING_XML&quot; - <a href="https://github.cerner.com/ibus-core/ibus-core-data-compat" class="external-link" rel="nofollow">https://github.cerner.com/ibus-core/ibus-core-data-compat</a> (This is for backwards compatibility for old proxy and connection framework. Do not use for any new development)</li><li><strong>Deprecated - </strong>&quot;ENCODING_SRV&quot; - <a href="https://github.cerner.com/ibus-core/ibus-core-data-compat" class="external-link" rel="nofollow">https://github.cerner.com/ibus-core/ibus-core-data-compat</a> (This is for backwards compatibility for old proxy and connection framework. Do not use for any new development)</li></ol><h1 id="CopyofiBusConnectionDeveloperGuide-Subscriptions">Subscriptions</h1><p>No matter if you want to register to receive pub / sub messages, or if you have a special need where you need to register to handle replies, the registration for both of those look similar. The only difference is that for messages, you will be dealing with classes like MessageSubscription and MessageSubscriptionManager, and replies will be dealing with classes like RequestSubscription and RequestSubscriptionManager.</p><p>Since these are fairly redundant, and most people will only need to register for messages, we will only explain how to register for IBusMessages in this guide. But if you need to register for IBusReplies, just know that it's the exact same thing, just with classes with different names.</p><p>There are two main classes used to deal with registering for messages.</p><h3 id="CopyofiBusConnectionDeveloperGuide-MessageSubscription">MessageSubscription</h3><p>This is a class that represents &quot;what&quot; you want to register for. It wraps three primary things:</p><ul><li>Which channels you want to register for</li><li>The callback handler (i.e. MessageHandler or RequestHandler) to invoke when a message is received.</li><li>Optionally, any additional filtering based on message properties</li></ul><h3 id="CopyofiBusConnectionDeveloperGuide-MessageSubscriptionManager">MessageSubscriptionManager</h3><p>A subscription manager is &quot;how&quot; you register. Things like durable and shared are attributes of the manager, not the MessageSubscription object in the iBus message connection framework. Everyone can have their own MessageSubscriptionManager (or multiple if you need), and it is responsible for keeping track of all of your registered subscriptions. This makes it a lot easier to control what messages you are registered for, control how you want to register, control which messages are share the same resource (like message delivery threads), and makes it a lot easier to deregister as well.</p><p>In addition to specifying options like shared, durable, redelivery, etc., the subscription manager adds a lot more options than just the two basic register and deregister methods that we are previously familiar with. Here are some examples:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public boolean register(final MessageSubscription subscription) throws IBusConnectionException
+
+public boolean replaceAll(final MessageSubscription subscription) throws IBusConnectionException
+
+public boolean deregister(final MessageSubscription subscription) throws IBusConnectionException
+
+public boolean deregisterAll() throws IBusConnectionException
+
+public boolean detachAll() throws IBusConnectionException</pre>
+</div></div><p>Just like the IBusConnection object, subscription managers can be injected. But in order to get them manually, you would simply call:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">final MessageSubscriptionManager manager = connection.newMessageManager();
+// or to use a named delivery pool
+final MessageSubscriptionManager manager2 = connection.newMessageManager(&quot;MyApp&quot;, &quot;MyEvents&quot;);</pre>
+</div></div><h3 id="CopyofiBusConnectionDeveloperGuide-Example:Registeringforamessage"><br/>Example: Registering for a message</h3><p>Here is an example of using a subscription manager:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public void registerExample() throws IBusConnectionException {
+    final IBusConnection connection;
+    final MessageSubscriptionManager manager = connection.newMessageManager(&quot;ExampleService&quot;, &quot;capture&quot;);
+    final MessageSubscription.Builder builder = new MessageSubscription.Builder(new MessageHandler() {
+        @Override
+        public void onMessage(final IBusMessage message) throws IBusHandlerException, Exception {
+        }
+    });
+    builder.channels(&quot;ExampleChannel&quot;);
+    manager.register(builder.build());
+}</pre>
+</div></div><p>If you implement MessageHandler yourself, the code looks something like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public void registerExample() throws IBusConnectionException {
+    manager.register(new MessageSubscription.Builder(this).channels(&quot;ExampleChannel&quot;).build());
+}</pre>
+</div></div><p>MessageSubscriptionManagers can be injected in services too. use @DataGroup.Bind and @DataName.Bind to name the delivery pool (See below for more about delivery pools)/</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">@DataGroup.Bind(&quot;ExampleService&quot;)
+public ExampleService extends IBusService {
+
+    @DataName.Bind(&quot;capture&quot;)
+    private MessageSubscriptionManager manager;
+}</pre>
+</div></div><p>There is also a AsyncMessageHandler api. Normally a message will not be acked/nacked to the underlying MQ server until the message has been fully processed and the thread returns from MessageHandler.onMessage(). In cases where you may want to receive multiple messages before acking/nacking a previous one you can use AsyncMessageHandler. Once you have returned from AsyncMessageHandler.onMessage() you can then receive another message. However, no messages are removed from the MQ server until AsyncAckSender.ack() is called. This is useful when you want to thread off a long running operation or you may want to process messages in a batch and then ack/nack them as a group after the batch processing is complete. In order to prevent running a consumer out of memory, there is a limit on the number of messages you can receive before you must ack/nack a previous one. On Websocket this is 10 by default and on RabbitMQ it is 20.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">public void registerAsyncAckExample() throws IBusConnectionException {
+    final MessageSubscriptionManager manager = iBusConnection.newMessageManager(&quot;AsyncExampleService&quot;, &quot;capture&quot;);
+    final MessageSubscription.Builder builder = new MessageSubscription.Builder(new AsyncMessageHandler() {
+        @Override
+        public void onMessage(final IBusMessage message, final AsyncAckSender ackSender) throws Exception {
+            final Object payload = message.deserializePayload();
+            if (payload instanceof MyFastProcessingPojo) {
+                // process the message &amp; then ack before returning from onMessage()
+                ackSender.ack();
+            } else if (payload instanceof MySlowProcessingPojo) {
+                // thread off processing of the message. Return from onMessage() without acking or nacking.
+                executor.submit(() -&gt; {
+                    try {
+                        // ... process the message ...
+                        ackSender.ack();
+                    } catch (final Exception e) {
+                        e.printStackTrace();
+                        ackSender.nack(FailureAction.redeliver());
+                    }
+                });
+            } else {
+                // some other message this handler doesn&#39;t care about
+                ackSender.nack(FailureAction.discard());
+            } 
+        }
+    });
+    builder.channels(&quot;AsyncExampleChannel&quot;);
+    manager.register(builder.build());
+}</pre>
+</div></div><p><br/></p><p><br/></p><p><br/></p><p><strong>Delivery Thread Pools</strong></p><p>SubscriptionManagers can be created using a group and name. Each unique group + name combination will create a different delivery thread pool on each connection. A &quot;delivery thread pool&quot; in this context refers to a pool of JMS Sessions on SonicMQ or AMQP Channels on RabbitMQ. So these thread pools are not shared across connections.</p><p>Registering two subscriptions on the same manager (or different managers with the same group and name) will result in sharing resources between those thread pools.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">// These 2 managers share the same delivery thread pool
+MessageSubscriptionManager manager1 = connection.newMessageManager(&quot;group1&quot;, &quot;name1&quot;);
+MessageSubscriptionManager manager2 = connection.newMessageManager(&quot;group1&quot;, &quot;name1&quot;);
+
+// These 2 managers each have their own delivery thread pool
+MessageSubscriptionManager manager3 = connection.newMessageManager(&quot;group1&quot;, &quot;name2&quot;);
+MessageSubscriptionManager manager4 = connection.newMessageManager(&quot;group4&quot;, &quot;name4&quot;);
+
+// This subscription manager uses the default thread pool (group=null, name=null)
+MessageSubscriptionManager manager5 = connection.newMessageManager();
+
+// This manager increases the delivery thread pool size from the default of 1 to 8 (meaning it can deliver 8 messages concurrently).
+// Note: this is 1 way to configure a subscription pool size in code. See next section for configuring pool sizes for IBusServices via external configuration.
+connection.getConfig().subscription(&quot;group6&quot;, &quot;name6&quot;).setPoolSize(8);
+MessageSubscriptionManager manager6 = connection.newMessageManager(&quot;group6&quot;, &quot;name6&quot;);
+
+// These 2 managers each have their own delivery thread pool because they are using different connections
+IBusConnection connection1 = ConnectionManager.connect(&quot;[[WEB]]::App1:::CLOUD_DEV&quot;);
+IBusConnection connection2 = ConnectionManager.connect(&quot;[[WEB]]::App2:::CLOUD_DEV&quot;);
+MessageSubscriptionManager manager1 = connection1.newMessageManager(&quot;group&quot;, &quot;name&quot;);
+MessageSubscriptionManager manager2 = connection2.newMessageManager(&quot;group&quot;, &quot;name&quot;);</pre>
+</div></div><p><strong><br/></strong>Named delivery thread pools can be configured externally of code. via spring config in iBus cloud and via Solution and iCommand container config in traditional iBus.</p><ul><li>For Cloud<ul><li>Configuration is done in spring yaml config. The property is &quot;ibus.container.delivery-pools.&lt;group&gt;.&lt;name&gt;&quot;</li><li>Example: <a href="https://github.cerner.com/ibus-docker/ibus-cloud-config-dev/blob/master/TempDiscreteDataStoreContainer.yml" class="external-link" rel="nofollow">https://github.cerner.com/ibus-docker/ibus-cloud-config-dev/blob/master/TempDiscreteDataStoreContainer.yml</a><ul><li>In this example, it is setting the TempDiscreteDataService's requestReply pool size to 8 and the discrete capture pool to 4.</li></ul></li><li>Keep in mind that cloud IBusService's share the RabbitMQ connection between all tenants which by extension means delivery thread pools are also shared among all tenants. So in the example above, the discrete capture pool of size 4 means 4 threads are shared among all tenants, not 4 per tenant.</li></ul></li><li>For Traditional:<ul><li>Pools are defined in the solution in each ServiceFactory and then can be changed at deploy/runtime in iCommand-&gt;Configuration-&gt;Container→Message Delivery Pools</li><li>Example: <a href="https://github.cerner.com/ibus-core/careaware-build-solution-ibus/blob/master/src/main/java/com/cerner/careaware/build/solution/container/TempDiscreteDataStoreContainerFactory.java#L133" class="external-link" rel="nofollow">https://github.cerner.com/ibus-core/careaware-build-solution-ibus/blob/master/src/main/java/com/cerner/careaware/build/solution/container/TempDiscreteDataStoreContainerFactory.java#L133</a></li><li>TODO: explain ratio delivery pool vs fixed</li></ul></li></ul><p><strong>De-registering subscriptions</strong></p><p>When you are ready to close your subscriptions and stop receiving messages, most of the time you will call:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">manager.deregisterAll();
+// or the helper method that catches and logs any exceptions
+manager.deregisterAllSilent();</pre>
+</div></div><p>The deregisterAll() method will remove all of your subscriptions. For example, if you registered with multiple clients (like for encounter changes, patient changes, and location changes), that one deregisterAll removes them all because they were managed together.</p><p>As an added bonus though, deregisterAll() automatically is called for services which have injected MessageSubscriptionManagers. This means you typically don't even need to do anything.</p><p>DetachAll() is also available if using durable subscriptions and you want to leave the queue open on the server when shutting down. This will cleanly close the consumers without deleting the queue. Note: deregister will only delete the queue when all consumers in the group have been deregistered. So you do not need to worry about deregister deleting the queue out from another JVM listening on the same queue in a shared subscription.</p><p>There are also options to deregister just specific MessageSubscriptions or all MessageSubscriptions for a specific MessageHandler.</p><p>There are some more advanced features you can do with subscription managers (like dealing with redelivery and message rejection, and even subscribing for messages with payloads not on your classpath), but most people will typically only deal with the register() (or replaceAll()) methods on startup, and deregisterAll() when shutting down.</p><p><strong>Available Options of interest</strong></p><ul><li><strong>ConsolidateMode</strong> - Combines multiple handlers and channels into a single subscription. The purpose of this is to reduce the amount of subscriptions (queues) that are created which helps improve performance and scalability on the MQ server. This applies to non-durable, non-shared subscriptions and is highly recommended for front-end applications that have lots of instances of their applications running. The new ConsolidateMode.on() option combines the legacy multi channel and consolidated handlers boolean options mentioned below. The main downside of enabling this option is that message re-delivery is no longer supported. But usually that is not needed for non-durable subscriptions anyways. You can find more details on the ConsolidateMode class level javadoc. You can enable subscription consolidated by default by configuration ConnectionConfig.SubscriptionConfig.setDefaultConsolidateMode or by using the JVM argument <strong>&quot;ibus.connection.subscribe.consolidate-mode.default=on&quot;</strong>.<br/><ul><li><strong>Multi Channel</strong> - Combines multiple channels into a single subscription. See <a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/message/MessageSubscriptionManager.html#multiChannelMode(boolean,%20java.lang.String)" class="external-link" rel="nofollow">MessageSubscriptionManager.multiChannelMode</a>.</li><li><strong>Consolidated subscriptions</strong> - Combines handlers into a single subscription. This is the same functionality that the old service proxy framework did. See <a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/message/MessageSubscriptionManager.html#consolidateMode(boolean)" class="external-link" rel="nofollow">MessageSubscriptionManager.consolidateMode</a>.</li></ul></li><li><strong>Redelivery</strong> - Several options are available to deal with redelivery based on attempts, time, etc. See <a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/message/MessageSubscriptionManager.html" class="external-link" rel="nofollow">MessageSubscriptionManager</a>, <a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/exception/IBusHandlerException.html" class="external-link" rel="nofollow">IBusHandlerException</a>, <a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/exception/FailureAction.html" class="external-link" rel="nofollow">FailureActions</a>, <a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/message/MessageRejectHandler.html" class="external-link" rel="nofollow">MessageRejectHandler</a>.</li></ul><h1 id="CopyofiBusConnectionDeveloperGuide-Connectionendpoints">Connection endpoints</h1><p>There are four provided connection implementations (SonicMQ, RabbitMQ, Web, and an in-memory implementation).</p><p>In addition to having different types of connections, you can also have different connection URLs that connect to different message brokers (for example). In the connection framework, these are referred to as &quot;connection endpoints&quot; (meaning you may have 4 different named broker clusters on a single domain).</p><p>Endpoints always have a name, and essentially are used to define which connection implementation is needed, and which connection URL to use.</p><h2 id="CopyofiBusConnectionDeveloperGuide-Predefinedconnectionendpoints">Predefined connection endpoints</h2><p>To make things easier, there are some pre-defined connection endpoints used to flex the implementation. In your application, if you know that you have multiple types but.</p><p>Note: New predefined endpoint names were added for clarity as of <span style="color: rgb(51,51,51);">ibus-core-connection-1.4.0. If you are using an older version of the connection framework, you can use the pre-1.4.0 endpoint names instead. The older endpoint names still work on 1.4.0 and higher.</span></p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Implementation</th><th class="confluenceTh"><p>1.4.0+ Endpoint Name</p></th><th class="confluenceTh">Pre-1.4.0 Endpoint Name</th></tr><tr><td class="confluenceTd">SonicMQ</td><td class="confluenceTd">SONIC</td><td class="confluenceTd">JMS</td></tr><tr><td class="confluenceTd">RabbitMQ</td><td class="confluenceTd">RABBIT</td><td class="confluenceTd">AMQP</td></tr><tr><td class="confluenceTd">Web</td><td class="confluenceTd">WEB</td><td class="confluenceTd">WEB</td></tr><tr><td class="confluenceTd">In Memory (HornetQ)</td><td class="confluenceTd">IN_MEMORY</td><td class="confluenceTd">IN_PROCESS</td></tr></tbody></table></div><h2 id="CopyofiBusConnectionDeveloperGuide-ResolvingtheconnectionURL">Resolving the connection URL</h2><p>By default, the connections themselves will negotiate and try to resolve which connection implementation is set. As of ibus-core-connection-1.4.0, as long as as DNS SRV entries are set, the correct implementation will be resolved. However if no entries exist or if you need to override the entries, you can set system properties.</p><p>If your environment string has a named endpoint, you can set the URL just for that endpoint. For example, if we have an endpoint named &quot;CLUSTER1&quot; on the &quot;PROD&quot; domain, the system property looks like this.</p><ul><li><code>ibus.connection.endpoint.url.CLUSTER1.PROD=tcp://localhost:3506<br/></code></li><li><code>or &quot;<code>ibus.connection.endpoint.url.CLUSTER1=tcp://localhost:3506&quot;</code> without the environment specified</code></li></ul><p>If you are not using named endpoints, you can set the URL for the environment string like this:</p><ul><li><code>ibus.connection.endpoint.url.PROD=tcp://localhost:3506</code></li></ul><p>If the connection implementation cannot be resolved, you can also set that using a system property, using one of the two. The system property value can be either the fully qualified classname or the predefined connection endpoint.</p><ul><li><code>ibus.connection.endpoint.impl.CLUSTER1.PROD=com.cerner.careaware.ibus.connection.sonic.SonicIBusConnection</code></li><li><code>ibus.connection.endpoint.impl.PROD=SONIC</code></li></ul><p>SonicMQ actually uses 2 URLs to connect. The main one is to the bus directory on port 3506. The code then automatically looks up the 2nd URL which is on port 3510. This URL includes the broker hostname. If your client cannot resolve that hostname, you will need to specify additional properties to set the 2nd URL by IP.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">ibus.connection.endpoint.url.PROD=tcp://10.11.12.13:3506
+ibus.connection.sonic.useAdminObj.PROD=false
+ibus.connection.sonic.broker.url.PROD=tcp://10.11.12.13:3510</pre>
+</div></div><p>FYI, If the Sonic cluster is fault tolerant there will be 2 server nodes and 4 total broker URLs to configure. On each node there will be a broker on port 3510 and another on 3520.</p><h1 id="CopyofiBusConnectionDeveloperGuide-Otherfeatures">Other features</h1><ul><li>Remote causes - replies that are in error contain the exception stack trace that occurred remotely (i.e. service side)</li><li>Stack traces - messages and requests are tagged with the stack trace from where they occurred. They are also chained. (For example: We can see via message properties the line of code from a specific front end application that called Service A, which published a message that was received by Service B, which in turn called Service C)</li><li>Re-delivery options for messages that fail to be processed by a subscriber such as configuring Max re-delivery count, max re-delivery time, and reject handler callbacks. This makes it very easy to implement something like a dead-message-queue.</li><li>Support for message filters. This is the ability for a subscriber to filter messages (usually broker side) based off properties on published messages. This allows you to do something like: &quot;Register for DLC events for only devices A, B, and C&quot;. DLC event messages that are not for 1 of those 3 devices will not be delivered to the client. As we build out the new service &quot;clients&quot; we will look at where message selectors fit best to help limit wasted message traffic to clients.</li><li>Thread-safety - all actions on an IBusConnection are thread-safe. This means you can have multiple threads publishing, requesting, and/or creating subscriptions without having to worry about implementing any synchronization in your code around the iBus connection APIs. Publishing and requesting is fully re-entrant as well meaning multiple threads can perform these actions simultaneously. Some of the subscription manager actions such as registering or deregistering subscriptions may be limited to a single thread at a time, but those synchronization points are handled in the framework internally.</li></ul><h1 id="CopyofiBusConnectionDeveloperGuide-RelatedLinks">Related Links</h1><ul><li><a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/index.html" class="external-link" rel="nofollow">Connection Framework Javadoc</a><ul><li><a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/ConnectionManager.html" class="external-link" rel="nofollow">ConnectionManager</a></li><li><a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/IBusConnection.html" class="external-link" rel="nofollow">IBusConnection</a></li><li><a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/message/IBusMessageFactory.html" class="external-link" rel="nofollow">IBusMesssageFactory</a></li><li><a href="http://repo.release.cerner.corp/nexus/content/sites/main-site/com.cerner.careaware.ibus/ibus-core-connection-reactor/1.18.0/ibus-core-connection/apidocs/com/cerner/careaware/ibus/connection/message/MessageSubscriptionManager.html" class="external-link" rel="nofollow">MessageSubscriptionManager</a></li></ul></li><li><a href="https://wiki.cerner.com/display/careaware/RabbitMQ" rel="nofollow">RabbitMQ Lunch &amp; Learn</a></li><li><a href="https://wiki.cerner.com/display/careaware/Sonic+MQ" rel="nofollow">SonicMQ Lunch &amp; Learn </a></li><li><a href="https://wiki.cerner.com/display/public/DevMethodology/iBus+Connection+and+Messaging+Framework+Design" rel="nofollow">Connection Framework Design</a></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2423661231/2423661225">Publish Multiple</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2423661231/2423661226.png">Publish Multiple.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2423661231/2423661227">Publish Noone</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2423661231/2423661228.png">Publish Noone.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2423661231/2423661229">Request Reply</a> (application/gliffy+json)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/2423661231/2423661230.png">Request Reply.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Jan 15, 2021 09:46</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
